@@ -8,7 +8,7 @@ const CONFIG = {
   PHOTO_URL: 'mini.jpg',
   WA_NUMBER: '918942895173',
   WISH_HEADER: 'Ritu Raz Birthday Wish 🎉💙',
-  PIN: '1709',
+  PIN: '2609',
   TRACKS: {
     main:   'https://files.catbox.moe/sqj2kr.mp3',
     emotional: 'https://cdn.pixabay.com/download/audio/2021/11/25/audio_00fa5593f3.mp3?filename=lofi-chill-medium-version-159456.mp3',
@@ -117,10 +117,10 @@ const state = {
   enterTimers: []
 };
 
-const slides = $$('.slide');
-const TOTAL = slides.length;
 const $  = (s, r=document) => r.querySelector(s);
 const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+const slides = $$('.slide');
+const TOTAL = slides.length;
 
 /* ---------- Helpers ---------- */
 function refreshIcons(){ if(window.lucide) lucide.createIcons(); }
@@ -272,18 +272,35 @@ function onEnterSlide(i){
 /* ---------- Gate / PIN ---------- */
 function setupGate(){
   const boxes = $$('.pin-box');
+  const fillDigits = (text, start)=>{
+    const digits = text.replace(/\D/g,'').slice(0, boxes.length-start);
+    if(!digits) return;
+    [...digits].forEach((digit,offset)=>{ boxes[start+offset].value = digit; });
+    const next = boxes.findIndex((box,i)=>i>start+digits.length-1 && !box.value);
+    if(next !== -1) boxes[next].focus();
+    else if(boxes.every(box=>box.value)) unlockSite();
+  };
   boxes.forEach((b,i)=>{
     b.addEventListener('input', ()=>{
-      b.value = b.value.replace(/\D/g,'').slice(0,1);
-      if(b.value && i<boxes.length-1) boxes[i+1].focus();
+      const digits = b.value.replace(/\D/g,'');
+      if(!digits){ b.value=''; return; }
+      fillDigits(digits, i);
+    });
+    b.addEventListener('paste', e=>{
+      e.preventDefault();
+      fillDigits(e.clipboardData ? e.clipboardData.getData('text') : '', i);
     });
     b.addEventListener('keydown', e=>{
-      if(e.key==='Backspace' && !b.value && i>0){ boxes[i-1].focus(); boxes[i-1].value=''; }
+      if(e.key==='Backspace' && !b.value && i>0){
+        e.preventDefault();
+        boxes[i-1].value='';
+        boxes[i-1].focus();
+      }
       if(e.key==='Enter') unlockSite();
     });
   });
   $('#unlockBtn').addEventListener('click', unlockSite);
-  setTimeout(()=>boxes[0] && boxes[0].focus(), 400);
+  setTimeout(()=>{ if(!state.unlocked && boxes[0]) boxes[0].focus(); }, 400);
 }
 function unlockSite(){
   if(state.unlocked) return;
@@ -301,7 +318,7 @@ function unlockSite(){
     sparkleAt(window.innerWidth/2, window.innerHeight/2.6);
   } else {
     card.classList.remove('shake-anim'); void card.offsetWidth; card.classList.add('shake-anim');
-    showToast('Bhai wrong PIN daal diya 🙈 Hint: 1709','#ff5ccf');
+    showToast('Bhai wrong PIN daal diya 🙈 Hint: 26 • 09','#ff5ccf');
     $$('.pin-box').forEach(b=>b.value='');
     const first = $('.pin-box'); if(first) first.focus();
   }
@@ -753,51 +770,52 @@ function buildTimeline(){
   });
 }
 
-/* ---------- Day-of-year sections ---------- */
+/* ---------- 26 September sections ---------- */
 const DAY_SECTIONS = {
   ind: {
-    title:'Indian History', sub:'17 September — Bharat ke itihaas me', color:'#5b8cff', icon:'landmark',
+    title:'Indian History', sub:'26 September — Bharat ke itihaas me', color:'#5b8cff', icon:'landmark',
     items:[
-      ['1948 — Liberation of Hyderabad State','The Nizam of Hyderabad surrendered to India after Operation Polo led by Sardar Vallabhbhai Patel.'],
-      ['1965 — Battle of Chawinda','One of the largest tank battles in post-WWII history during the 1965 Indo-Pak War.']
+      ['1919 — Rotary ki pehli meeting','Calcutta me Bharat ke pehle Rotary club ki pehli meeting hui; club 1920 me charter hua.'],
+      ['1932 — Gandhi ji ne anshan toda','Poona Pact ko British sarkar ki manzoori milne ke baad Gandhi ji ne apna chhe din ka upvaas samaapt kiya.'],
+      ['1998 — Sachin ka ODI record','Zimbabwe ke khilaaf 127* banaakar Sachin Tendulkar ne apni 18vi ODI century lagayi — us waqt ka world record.']
     ]
   },
   indcel:{
-    title:'Indian Celebs', sub:'Aaj ke din paida hue Indian sitare', color:'#ff9a3c', icon:'star',
+    title:'Indian Celebs', sub:'26 September ko paida hue Indian sitare', color:'#ff9a3c', icon:'star',
     items:[
-      ['Narendra Modi (b. 1950)','14th Prime Minister of India.'],
-      ['Periyar E. V. Ramasamy (b. 1879)','Social reformer and founder of the Self-Respect Movement.'],
-      ['M. F. Husain (b. 1915)','The "Picasso of India".'],
-      ['Ravichandran Ashwin (b. 1986)','Premier Indian cricketer and spin bowler.']
+      ['Ishwar Chandra Vidyasagar (1820)','Shikshak aur samaj sudharak; mahila shiksha aur vidhwa punarvivah ke liye awaaz uthayi.'],
+      ['Dev Anand (1923)','Hindi cinema ke evergreen actor, filmmaker aur producer.'],
+      ['Dr. Manmohan Singh (1932)','Arthashastri aur Bharat ke poorv Pradhan Mantri (2004–2014).'],
+      ['Archana Puran Singh (1962)','Indian actor aur comedy shows ki popular TV personality.'],
+      ['Chunky Pandey (1962)','Hindi cinema ke actor; comedy roles ke liye bhi mashhoor.']
     ]
   },
   days:{
-    title:'International & National Days', sub:'17 September ko duniya kya manati hai', color:'#b16bff', icon:'globe',
+    title:'International Days', sub:'26 September ko duniya kya manati hai', color:'#b16bff', icon:'globe',
     items:[
-      ['Hyderabad Liberation Day (India)','Commemorates the 1948 integration of Hyderabad into India.'],
-      ['Vishwakarma Jayanti (India)','Day honoring Lord Vishwakarma, the divine architect.'],
-      ['World Patient Safety Day (WHO)','Global awareness around patient safety and healthcare standards.'],
-      ['World Manta Day','Ocean conservation day for manta rays.'],
-      ['US Constitution Day','Marks the signing of the US Constitution in 1787.']
+      ['Nuclear Weapons Elimination Day (UN)','Nuclear hathiyaaron ko poori tarah khatam karne ke liye UN ka awareness day.'],
+      ['European Day of Languages','Bhashaon ki diversity aur nayi languages seekhne ka jashn.'],
+      ['World Environmental Health Day','Saaf hawa, paani aur sehatmand environment ki ahmiyat yaad dilata hai.'],
+      ['World Contraception Day','Family planning aur sexual health par sahi jaankari badhane ka din.']
     ]
   },
   world:{
-    title:'World History', sub:'Duniya me aaj kya hua tha', color:'#22c55e', icon:'history',
+    title:'World History', sub:'26 September ko duniya me kya hua tha', color:'#22c55e', icon:'history',
     items:[
-      ['1787 — US Constitution Signed','Delegates signed the US Constitution in Philadelphia.'],
-      ['1862 — Battle of Antietam','The bloodiest single day in American military history.'],
-      ['1939 — Soviet Invasion of Poland','Red Army invaded Poland from the east in WWII.'],
-      ['1978 — Camp David Accords','Historic peace deal between Egypt and Israel.'],
-      ['1991 — Linux Kernel v0.01','Linus Torvalds released the first public Linux kernel.']
+      ['1580 — Drake ki duniya ki yatra','Francis Drake Plymouth laute aur samundar ke raaste duniya ka chakkar poora kiya.'],
+      ['1687 — Parthenon ko nuksan','Athens me Venetian hamle ke dauran Parthenon ke andar barood phata aur imaarat ka bada hissa toot gaya.'],
+      ['1960 — TV par presidential debate','John F. Kennedy aur Richard Nixon ne America ki pehli televised presidential debate ki.'],
+      ['1983 — Nuclear false alarm','Soviet officer Stanislav Petrov ne missile warning ko false alarm samjha; woh sahi nikle.']
     ]
   },
   intcel:{
-    title:'International Celebs', sub:'Duniya bhar ke 17 September wale', color:'#ff5ccf', icon:'cake',
+    title:'International Celebs', sub:'Duniya bhar ke 26 September wale', color:'#ff5ccf', icon:'cake',
     items:[
-      ['Patrick Mahomes (b. 1995)','NFL quarterback & three-time Super Bowl champion.'],
-      ['Hank Williams (b. 1923)','American country music pioneer.'],
-      ['Ella Purnell (b. 1996)','British actress (Fallout, Yellowjackets).'],
-      ['Esteban Ocon (b. 1996)','French Formula 1 driver.']
+      ['T. S. Eliot (1888)','Poet aur 1948 ke Nobel Prize in Literature winner.'],
+      ['George Gershwin (1898)','American composer; Rhapsody in Blue ke creator.'],
+      ['Olivia Newton-John (1948)','Singer aur Grease film ki star.'],
+      ['Linda Hamilton (1956)','The Terminator films me Sarah Connor ka role nibhaya.'],
+      ['Serena Williams (1981)','Tennis legend aur 23 Grand Slam singles titles ki winner.']
     ]
   }
 };
@@ -981,21 +999,41 @@ function attemptMusic(){
 function playIntroVideo(){
   const box = $('#introVid'), vid = $('#introVideo');
   if(!box||!vid){ attemptMusic(); return; }
-  let finished = false;
+  let finished = false, loadingTimeout;
   const finish = ()=>{
     if(finished) return; finished=true;
+    clearTimeout(loadingTimeout);
+    vid.removeEventListener('playing', showIntro);
+    vid.removeEventListener('waiting', watchLoading);
+    vid.removeEventListener('stalled', watchLoading);
     try{ vid.pause(); }catch(_){}
     box.classList.add('bye');
     setTimeout(()=>{ box.classList.remove('show','bye'); box.style.display='none'; attemptMusic(); }, 720);
   };
-  box.classList.add('show');
-  vid.currentTime=0; vid.muted=false; vid.volume=1;
-  const p = vid.play();
-  if(p && p.catch) p.catch(()=>{ vid.muted=true; const q=vid.play(); if(q&&q.catch) q.catch(finish); });
+  const watchLoading = ()=>{
+    clearTimeout(loadingTimeout);
+    loadingTimeout = setTimeout(finish, 5000);
+  };
+  const showIntro = ()=>{
+    if(finished) return;
+    clearTimeout(loadingTimeout);
+    box.classList.add('show');
+  };
+  vid.addEventListener('playing', showIntro);
+  vid.addEventListener('waiting', watchLoading);
+  vid.addEventListener('stalled', watchLoading);
   vid.addEventListener('ended', finish, { once:true });
   vid.addEventListener('error', finish, { once:true });
   const skip = $('#ivSkip');
   if(skip) skip.addEventListener('click', finish, { once:true });
+  watchLoading();
+  vid.currentTime=0; vid.muted=false; vid.volume=1;
+  const p = vid.play();
+  if(p && p.catch) p.catch(()=>{
+    if(finished) return;
+    vid.muted=true;
+    const q=vid.play(); if(q&&q.catch) q.catch(finish);
+  });
 }
 function toggleMusic(){
   if(!audio) return;
