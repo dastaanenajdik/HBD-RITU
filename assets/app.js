@@ -27,7 +27,7 @@ const CONFIG = {
 
 /* ---------- Data ---------- */
 const CONF = ['#5a8dd2','#8e89d8','#e6927e','#e9b56c','#73ae98','#f3c6a9','#fffaf2'];
-const NO_LINES = ['Not so fast 😹','Nice try, bhai!','That button is shy 😎','Try the other one 😂','Nope — keep going ✦'];
+const NO_LINES = ['yaha nahi uppr click kr','nautanki mt kr sala','itna bhi fast nahi','kosis achchi thi'];
 
 const PRESETS = [
   'Whenever I needed you, you stayed on the call with me. Thank you.',
@@ -41,7 +41,7 @@ const PRESETS = [
 ];
 
 const SIGNOFFS = [
-  '— thank you, bhai 💙',
+  '— thank you, bhai 🤍',
   '— always rooting for you ✦',
   '— one call away 🤝',
   '— certified dosti moment',
@@ -53,7 +53,7 @@ const MEMORIES = [
   { t: 'The First Laugh', d: 'A small joke that made everything feel easy.', c: '#8e89d8' },
   { t: 'The Calls', d: '4 PM calls, late calls, science, relationships, and everything in the world.', c: '#73ae98' },
   { t: 'The Chaos', d: 'I messed things up once or twice in your life — but you still kept talking to me. Thank you for that.', c: '#e6927e' },
-  { t: 'Today', d: 'It is your day, so a party is deserved. And look at us — here we are.', c: '#d39a6f' }
+  { t: 'Today', d: 'It’s your day.. and look at us, here we are..', c: '#d39a6f' }
 ];
 
 const CAT_LINES = {
@@ -308,8 +308,8 @@ function unlockSite(){
 
 /* ---------- YES / NO ---------- */
 function setupQuiz(){
-  const yes = $('#yesBtn'), no = $('#noBtn'), arena = $('#noArena');
-  if(!yes||!no||!arena) return;
+  const yes = $('#yesBtn'), no = $('#noBtn');
+  if(!yes||!no) return;
   yes.addEventListener('click', ()=>{
     if(state.quizAnswered) return;
     state.quizAnswered = true;
@@ -320,32 +320,25 @@ function setupQuiz(){
     const qn = $('#quizNext');
     if(qn){ qn.style.display='inline-flex'; qn.style.animation='cardPop .7s var(--ease-spring) both'; refreshIcons(); }
   });
-  let noLive = false;
-  const dodge = (e)=>{
-    if(state.quizAnswered) return;
-    if(!noLive) return;
-    if(e && e.cancelable && e.type!=='click') e.preventDefault();
-    dodgeNoButton();
-  };
+
+  // Every tap on NO writes the next line, and nothing else.
+  let noHits = 0;
+  const msg = $('#noMsg');
   no.addEventListener('click', e=>{
     if(state.quizAnswered) return;
-    e.preventDefault(); noLive = true; dodgeNoButton();
+    e.preventDefault();
+    if(msg && noHits < NO_LINES.length){
+      if(noHits === 0) msg.textContent = '';
+      const row = document.createElement('span');
+      row.className = 'no-line';
+      row.textContent = NO_LINES[noHits];
+      msg.appendChild(row);
+    }
+    noHits++;
+    const r = no.getBoundingClientRect();
+    spawnSpark(r.left+r.width/2, r.top+r.height/2, CONF[4], 10, 34);
+    no.classList.remove('no-hit'); void no.offsetWidth; no.classList.add('no-hit');
   });
-  no.addEventListener('pointerenter', dodge);
-  no.addEventListener('touchstart', dodge, { passive:false });
-}
-function dodgeNoButton(){
-  const no = $('#noBtn'), arena = $('#noArena');
-  if(!no||!arena) return;
-  no.textContent = NO_LINES[(Math.random()*NO_LINES.length)|0];
-  const aW = arena.clientWidth, aH = arena.clientHeight;
-  const bW = no.offsetWidth, bH = no.offsetHeight;
-  const maxX = Math.max(0, aW-bW), maxY = Math.max(0, aH-bH);
-  const x = 6 + Math.random()*Math.max(0, maxX-12);
-  const y = 6 + Math.random()*Math.max(0, maxY-12);
-  no.style.left = x+'px'; no.style.top = y+'px'; no.style.transform = 'none';
-  const r = arena.getBoundingClientRect();
-  spawnSpark(x+bW/2+r.left, y+r.top, CONF[4], 8, 30);
 }
 
 /* ---------- Envelope ---------- */
@@ -598,6 +591,12 @@ function buildTimeline(){
 
 /* ---------- 26 September sections ---------- */
 const DAY_SECTIONS = {
+  imp: {
+    title:'Important*', sub:'26 September — the part that matters the most', color:'#4f86cf', icon:'sparkles',
+    items:[
+      ['You landed on this day 😓😂']
+    ]
+  },
   ind: {
     title:'Indian History', sub:'26 September — moments from India', color:'#5a8dd2', icon:'landmark',
     items:[
@@ -663,8 +662,9 @@ function setupSections(){
         row.style.animation='noteIn .5s var(--ease-spring) both';
         row.style.animationDelay=(60+i*70)+'ms';
         const b = document.createElement('b'); b.textContent=t;
-        const s = document.createElement('span'); s.textContent=txt;
-        row.appendChild(b); row.appendChild(s); body.appendChild(row);
+        row.appendChild(b);
+        if(txt){ const s = document.createElement('span'); s.textContent=txt; row.appendChild(s); }
+        body.appendChild(row);
       });
       modal.classList.add('show');
       modal.setAttribute('aria-hidden','false');
