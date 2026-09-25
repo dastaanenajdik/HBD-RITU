@@ -7,17 +7,15 @@
 const CONFIG = {
   PHOTO_URL: 'mini.jpg',
   WA_NUMBER: '918942895173',
-  WISH_HEADER: 'Ritu Raz Birthday Wish 🎉💙',
+  WISH_HEADER: 'Birthday note for Bhai Ritu 🎉💙',
   PIN: '2609',
   TRACKS: {
     main:   'https://files.catbox.moe/sqj2kr.mp3',
     emotional: 'https://cdn.pixabay.com/download/audio/2021/11/25/audio_00fa5593f3.mp3?filename=lofi-chill-medium-version-159456.mp3',
-    // TODO: user will provide new billi-tap audio link — replace here.
-    cat:    'https://files.catbox.moe/ep38ia.mp3'
+    cat:    'https://files.catbox.moe/sl8ftn.mp3'
   },
   INTRO_VIDEO: 'https://files.catbox.moe/tc3ty8.mp4',
   REVEAL_VIDEO: 'https://files.catbox.moe/uc5t21.mp4',
-  OLD_VIDEO:   'https://files.catbox.moe/evxl87.mp4',
   GIFTS: {
     hub:  'https://ifallgift.vercel.app/',
     sidify: 'https://sidify.vercel.app/',
@@ -28,83 +26,65 @@ const CONFIG = {
 };
 
 /* ---------- Data ---------- */
-const CONF = ['#00e5ff','#5b8cff','#b16bff','#ff5ccf','#ff9a3c','#9dff5c','#fff'];
-const NO_LINES = ['Nahi bhai 😹','Bhag gaya!','Nice try bro 😎','Ajeeb hai tu 😂','Mt krna re 😭'];
-const CARE_DODGE_LINES = ['Soch lo phir se 👀','Galat option, bhago!','Ye button jhooth bolta hai','Nahi nahi, ye nahi','Arre itna bhi kya!','Try again bro 🙈','Ye option chhutti pe hai'];
-const CARE_DEFAULTS = ['😞 Bilkul nahi mante','🤏 Thoda bahut'];
+const CONF = ['#5a8dd2','#8e89d8','#e6927e','#e9b56c','#73ae98','#f3c6a9','#fffaf2'];
+const NO_LINES = ['Not so fast 😹','Nice try, bhai!','That button is shy 😎','Try the other one 😂','Nope — keep going ✦'];
 
 const PRESETS = [
-  'Thank you for always pulling me back when I overthink — best bro instincts ever.',
-  'Thank you for laughing at my worst jokes like they are actually funny.',
-  'Thank you for telling me the straight truth even when I don’t want to hear it.',
-  'Thank you for showing up — every single time, without being asked.',
-  'Thank you for the random 2 AM calls that turn into the best therapy sessions.',
-  'Thank you for the chai-sutta and maggi memories that hit different.',
-  'Thank you for being the brother I chose for myself — forever ride-or-die.',
-  'Thank you for turning ordinary hangouts into stories we’ll laugh at for decades.'
+  'Whenever I needed you, you stayed on the call with me. Thank you.',
+  'You laugh at my worst jokes on purpose — I know that. Thank you.',
+  'Thank you for telling me the straight truth, even when I do not want to hear it.',
+  'Thank you for showing up every single time, without being asked.',
+  'Thank you for those random calls that turned into the best therapy sessions.',
+  'Thank you for the science, spirituality, and out-of-this-world conversations. I have so much fun having them with you; I do not have anyone else to talk to at that level. You are a genius.',
+  'Thank you for being the brother I chose for myself — forever.',
+  'Thank you for turning ordinary hangouts into stories we will laugh at for decades.'
 ];
 
 const SIGNOFFS = [
-  '— tera yaar 💙',
-  '— bas kehna tha ✨',
-  '— from someone who notices 🤝',
-  '— certified dosti moment 😭',
-  '— always rooting for you 🚀',
-  '— okay, emotional mat ho na 🥹'
+  '— thank you, bhai 💙',
+  '— always rooting for you ✦',
+  '— one call away 🤝',
+  '— certified dosti moment',
+  '— made with care'
 ];
 
-// Placeholder memories — user said he'll provide the real ones later.
 const MEMORIES = [
-  { t: 'The First Hello',    d: 'Woh pehla "bhai" jo sab kuch shuru kar gaya.', c: '#00e5ff' },
-  { t: 'The First Laugh',    d: 'Ek chhota sa joke aur haste-haste raat nikal gayi.', c: '#5b8cff' },
-  { t: 'The Late-Night Calls', d: '2 AM ki chai, bakchodi aur life ki baatein.',  c: '#b16bff' },
-  { t: 'The Chaos',          d: 'Kuch to hamesha gadbad hoti hai — aur wahi maza hai.', c: '#ff9a3c' },
-  { t: 'Today',              d: 'Aaj tera din hai. Party toh banti hai.', c: '#ff5ccf' }
+  { t: 'The First Hello', d: 'The first “bhai” that started it all.', c: '#5a8dd2' },
+  { t: 'The First Laugh', d: 'A small joke that made everything feel easy.', c: '#8e89d8' },
+  { t: 'The Calls', d: '4 PM calls, late calls, science, relationships, and everything in the world.', c: '#73ae98' },
+  { t: 'The Chaos', d: 'I messed things up once or twice in your life — but you still kept talking to me. Thank you for that.', c: '#e6927e' },
+  { t: 'Today', d: 'It is your day, so a party is deserved. And look at us — here we are.', c: '#d39a6f' }
 ];
 
 const CAT_LINES = {
   f1: [
-    'Dua: Tujhe har woh cheez mile jo tu deserve karta hai 🌊',
-    'Dua: Tera hustle kabhi thake na 🚀',
-    'Billi bolti hai: aaj ke din full chill, no tension 🤿',
-    'Aaj ke liye ek free pass — koi nahi daantega tujhe 😎'
+    'May you get everything you deserve 🌊',
+    'May your hustle never run out 🚀',
+    'The cat says: full chill, no tension today 🤿',
+    'A free birthday pass — nobody can complain today 😎'
   ],
   f2: [
-    'Dua: Tere saath hamesha sachche dost rahein 💙',
-    'Dua: Teri hansi kabhi kam na ho 😄',
-    'Ye billi tere liye naach rahi hai. Fees: ek cold drink 🍻',
-    'Dance floor ready hai, cake ready hai, bas tu late hai 💃',
-    'Happy Birthday Ritu! Aaj ka tu king hai. Rule hai. 😼'
+    'May good people always find their way to you 💙',
+    'May your laugh never get any quieter 😄',
+    'This cat is dancing for you. Payment: one cold drink 💃',
+    'The dance floor and cake are ready — you are late 😼',
+    'Happy Birthday, Ritu! Today you are the king ✦'
   ]
 };
 
 const NOTE_GRADS = [
-  'linear-gradient(135deg,#00c6ff,#0072ff)',
-  'linear-gradient(135deg,#5b8cff,#b16bff)',
-  'linear-gradient(135deg,#22c55e,#0ea5e9)',
-  'linear-gradient(135deg,#ff9a3c,#ff5ccf)',
-  'linear-gradient(135deg,#ff5ccf,#b16bff)'
+  'linear-gradient(135deg,#75a9dc,#6686c7)',
+  'linear-gradient(135deg,#9a8fd2,#d18da0)',
+  'linear-gradient(135deg,#78b39b,#679ac5)',
+  'linear-gradient(135deg,#dda374,#d3869f)',
+  'linear-gradient(135deg,#d68d9e,#9b88cb)'
 ];
 const NOTE_ICONS = ['heart','sparkles','sun','star','zap'];
-
-const WISH_DRAFT =
-`Happy Birthday Ritu Raz! 🎉
-
-Mere bhai, iss saal ke liye official wish-list:
-1. Ek solid party — full on, no excuses. 🍻
-2. Treat teri, meri choice. Pizza mandatory. 🍕
-3. Har mahine ek proper meet-up / trip — backlog mat rakhna. 🚀
-4. Hamesha wahi Ritu bana reh — jisse baat karke mood automatically sahi ho jaye. 💙
-
-Aur ye chhota sa site — tere liye banaya hai. Hope it made your day, brother. 🥹✨`;
 
 /* ---------- State ---------- */
 const state = {
   currentSlide: 0,
   quizAnswered: false,
-  careAnswered: false,
-  billiVideoDone: false,
-  billiVideoDead: false,
   wishMade: false,
   cakeCut: false,
   timelineBuilt: false,
@@ -227,7 +207,7 @@ function clearEnterTimers(){
 }
 function stopSlideVideos(){
   try{ stopOverlay(); }catch(_){}
-  ['#rvVideo','#oldVideo','#introVideo'].forEach(sel=>{
+  ['#rvVideo','#introVideo'].forEach(sel=>{
     const v = document.querySelector(sel);
     if(v && !v.paused){ try{ v.pause(); }catch(_){} }
   });
@@ -253,14 +233,16 @@ function prevSlide(){ if(state.unlocked) goToSlide(state.currentSlide-1); }
 
 function onEnterSlide(i){
   switch(i){
-    case 2: resetCare(); break;
-    case 6: runWho(); break;
-    case 9: runReveal(); break;
-    case 10: runOldVideo(); break;
-    case 12: buildNotes(); break;
-    case 13: buildTimeline(); break;
-    case 14:
+    case 6:
+      runReveal();
+      break;
+    case 8:
+      buildNotes();
+      break;
+    case 9:
       buildTimeline();
+      break;
+    case 10:
       if(!state.finaleShown){
         state.finaleShown = true;
         setTimeout(bigConfetti, 500);
@@ -310,7 +292,7 @@ function unlockSite(){
     state.unlocked = true;
     sparkleAt(card);
     createConfetti({ particleCount:70, spread:80, origin:{ y:.5 }, scalar:.9 });
-    showToast('Unlocked! Andar aa bhai 💙','#00e5ff');
+    showToast('Unlocked! Welcome in, bhai 💙','#5a8dd2');
     $('#gate').classList.add('gate-out');
     document.body.classList.add('unlocked');
     setTimeout(()=>{ const g=$('#gate'); if(g) g.style.display='none'; }, 850);
@@ -318,7 +300,7 @@ function unlockSite(){
     sparkleAt(window.innerWidth/2, window.innerHeight/2.6);
   } else {
     card.classList.remove('shake-anim'); void card.offsetWidth; card.classList.add('shake-anim');
-    showToast('Bhai wrong PIN daal diya 🙈 Hint: 26 • 09','#ff5ccf');
+    showToast('That PIN was not quite right 🙈 Hint: 26 • 09','#e6927e');
     $$('.pin-box').forEach(b=>b.value='');
     const first = $('.pin-box'); if(first) first.focus();
   }
@@ -333,7 +315,7 @@ function setupQuiz(){
     state.quizAnswered = true;
     createConfetti({ particleCount:70, spread:75, origin:{ y:.55 }, scalar:.9 });
     sparkleAt(yes);
-    showToast('Sahi jawab! Chaliye aage 😎💙','#00e5ff');
+    showToast('That is the right answer — let’s go 😎💙','#5a8dd2');
     no.classList.add('dead'); yes.disabled = true;
     const qn = $('#quizNext');
     if(qn){ qn.style.display='inline-flex'; qn.style.animation='cardPop .7s var(--ease-spring) both'; refreshIcons(); }
@@ -366,96 +348,11 @@ function dodgeNoButton(){
   spawnSpark(x+bW/2+r.left, y+r.top, CONF[4], 8, 30);
 }
 
-/* ---------- Care meter ---------- */
-function setupCare(){
-  const arena = $('#careArena');
-  if(!arena) return;
-  $$('.care-dodge').forEach(btn=>{
-    let live = false;
-    const dodge = (e)=>{
-      if(state.careAnswered || !live) return;
-      if(e && e.cancelable && e.type!=='click') e.preventDefault();
-      dodgeCareButton(btn);
-    };
-    btn.addEventListener('click', e=>{
-      if(state.careAnswered) return;
-      e.preventDefault(); live = true; dodgeCareButton(btn);
-    });
-    btn.addEventListener('pointerenter', dodge);
-    btn.addEventListener('touchstart', dodge, { passive:false });
-    btn._resetLive = ()=>{ live = false; };
-  });
-  const yes = $('#careYes');
-  if(yes) yes.addEventListener('click', ()=>{
-    if(state.careAnswered) return;
-    state.careAnswered = true;
-    $$('.care-dodge').forEach(b=>b.classList.add('dead'));
-    yes.disabled = true;
-    sparkleAt(yes);
-    createConfetti({ particleCount:60, spread:72, origin:{ y:.6 }, scalar:.85 });
-    showToast('Sahi jawab! Ab proof dekh 💙','#00e5ff');
-    $('#careResult').style.display = 'block';
-    runCareMeter();
-  });
-}
-function dodgeCareButton(btn){
-  const arena = $('#careArena'); if(!arena) return;
-  btn.textContent = CARE_DODGE_LINES[(Math.random()*CARE_DODGE_LINES.length)|0];
-  btn.classList.add('loose');
-  const aW = arena.clientWidth, aH = arena.clientHeight;
-  const bW = btn.offsetWidth, bH = btn.offsetHeight;
-  const x = 4 + Math.random()*Math.max(0,aW-bW-8);
-  const y = 4 + Math.random()*Math.max(0,aH-bH-8);
-  btn.style.left = x+'px'; btn.style.top = y+'px';
-  const r = arena.getBoundingClientRect();
-  emojiBurst(r.left+x+bW/2, r.top+y+bH/2);
-}
-function resetCare(){
-  if(state.careAnswered) return;
-  const res = $('#careResult'); if(res) res.style.display='none';
-  const opts = $$('.care-dodge');
-  opts.forEach((b,i)=>{
-    b.classList.remove('loose','dead');
-    b.style.left=''; b.style.top='';
-    b.textContent = CARE_DEFAULTS[i] || b.textContent;
-    if(b._resetLive) b._resetLive();
-  });
-}
-function runCareMeter(){
-  const fill = $('#meterFill'), pct = $('#meterPct'), msg = $('#meterMsg');
-  if(!fill||!pct) return;
-  fill.classList.remove('meter-done');
-  const stages = [
-    [15,  'hmm... shuruaat achhi hai'],
-    [40,  'thoda aur... dil se naap rahe hain'],
-    [70,  'okay okay, yeh to serious nikla'],
-    [92,  'almost... bas thoda sa aur'],
-    [100, '100% — certified bhai-for-life care. No refunds 💙']
-  ];
-  let v = 0; fill.style.width='0%'; pct.textContent='0%';
-  msg.textContent='Calculating kitna care karta hoon...';
-  const iv = setInterval(()=>{
-    v += 1 + Math.random()*2.2;
-    if(v>=100) v=100;
-    fill.style.width = v+'%'; pct.textContent = Math.round(v)+'%';
-    for(const[limit,text] of stages){ if(v>=limit) msg.textContent=text; }
-    if(v>=100){
-      clearInterval(iv); fill.classList.add('meter-done');
-      sparkleAt($('#meterWrap'));
-      createConfetti({ particleCount:40, spread:60, origin:{ y:.5 }, scalar:.7 });
-      showToast('Care level: MAXIMUM 💙','#5b8cff');
-      const cn = $('#careNext');
-      if(cn){ cn.style.display='inline-flex'; cn.style.animation='cardPop .7s var(--ease-spring) both'; refreshIcons(); }
-    }
-  }, 46);
-  state.enterTimers.push(iv);
-}
-
 /* ---------- Envelope ---------- */
 function setupEnvelope(){
   const scene = $('#envScene'), env = $('#env');
   if(!scene||!env) return;
-  env.addEventListener('click', ()=>{
+  const openEnvelope = ()=>{
     if(state.envOpened) return;
     state.envOpened = true;
     scene.classList.add('open');
@@ -463,7 +360,11 @@ function setupEnvelope(){
     playOverlay('emotional');
     state.enterTimers.push(setTimeout(()=>scene.classList.add('gone'), 1350));
     state.enterTimers.push(setTimeout(()=>{ $('#letterPanel').classList.add('show'); refreshIcons(); }, 1680));
-    state.enterTimers.push(setTimeout(()=>showToast('Purani yaadein, fresh feel 💙','#b16bff'), 1950));
+    state.enterTimers.push(setTimeout(()=>showToast('A memory worth keeping 💙','#8e89d8'), 1950));
+  };
+  env.addEventListener('click', openEnvelope);
+  env.addEventListener('keydown', e=>{
+    if(e.key==='Enter' || e.key===' '){ e.preventDefault(); openEnvelope(); }
   });
 }
 
@@ -471,18 +372,22 @@ function setupEnvelope(){
 function setupCandle(){
   const c = $('#candleEl');
   if(!c) return;
-  c.addEventListener('click', ()=>{
+  const lightCandle = ()=>{
     c.classList.add('wow');
     const glow = $('#warmGlow'); glow.style.opacity='1';
     setTimeout(()=>glow.style.opacity='0', 2200);
     sparkleAt(c);
     if(!state.candleLit){
       state.candleLit = true;
-      showToast('Candle jal gayi! Ab wish soch le 🕯️✨','#00e5ff');
+      showToast('The candle is glowing — make your wish 🕯️✨','#e9b56c');
       createConfetti({ particleCount:28, spread:50, origin:{ y:.4 }, scalar:.7 });
     } else {
-      showToast('Aur roshni, aur vibe ✨','#5b8cff');
+      showToast('A little more light, a little more joy ✨','#5a8dd2');
     }
+  };
+  c.addEventListener('click', lightCandle);
+  c.addEventListener('keydown', e=>{
+    if(e.key==='Enter' || e.key===' '){ e.preventDefault(); lightCandle(); }
   });
 }
 
@@ -495,9 +400,9 @@ function setupWish(){
     if(!state.wishMade){
       state.wishMade = true;
       btn.innerHTML='<i data-lucide="check"></i> ✓ Wish locked in!';
-      showToast('Wish locked in... 💫💙','#00e5ff');
+      showToast('Wish locked in 💫💙','#5a8dd2');
     } else {
-      showToast('Lalach mat kar bhai — ek wish per birthday 😭💙','#ff5ccf');
+      showToast('One wish per birthday, bhai 😭💙','#e6927e');
     }
   });
 }
@@ -540,13 +445,13 @@ function setupCake(){
     const r = stage.getBoundingClientRect();
     for(let i=0;i<14;i++) spawnSpark(r.left+r.width/2, r.top+r.height*(.3+Math.random()*.5), CONF[i%CONF.length], 14, 70);
     createConfetti({ particleCount:80, spread:70, origin:{ y:.6 }, scalar:.85 });
-    showToast('Clean cut! Cake ho gaya distribute 🍰😂','#ff9a3c');
+    showToast('Clean cut — cake is ready to share 🍰','#e6927e');
     const cont = $('#cakeContinue');
     cont.style.display='inline-flex';
     cont.style.animation='cardPop .7s var(--ease-spring) both';
     refreshIcons();
   }
-  $('#cakeContinue').addEventListener('click', ()=>goToSlide(9));
+  $('#cakeContinue').addEventListener('click', ()=>goToSlide(6));
 }
 
 /* ---------- Floating cats (billi) ---------- */
@@ -593,18 +498,6 @@ function setupCats(){
   });
 }
 
-/* ---------- Who reveal ---------- */
-function runWho(){
-  const a = $('#whoA'), b = $('#whoB'), c = $('#whoC');
-  [a,b,c].forEach(el=>el && el.classList.remove('on'));
-  state.enterTimers.push(setTimeout(()=>a.classList.add('on'), 450));
-  state.enterTimers.push(setTimeout(()=>b.classList.add('on'), 1350));
-  state.enterTimers.push(setTimeout(()=>{
-    c.classList.add('on'); sparkleAt(c);
-    createConfetti({ particleCount:50, spread:70, origin:{ y:.45 }, scalar:.8 });
-  }, 2350));
-}
-
 /* ---------- Birthday reveal video ---------- */
 function showBirthdayWish(){
   const C = $('#rvC');
@@ -642,73 +535,6 @@ function runReveal(){
   });
   vid.addEventListener('ended', finish, { once:true });
   vid.addEventListener('error', finish, { once:true });
-}
-
-/* ---------- "Old video" (billi break) ---------- */
-function setupOldVideo(){
-  const box=$('#oldVidBox'), vid=$('#oldVideo');
-  if(!box||!vid) return;
-  box.addEventListener('click', ()=>{
-    if(!vid.paused) return;
-    const note = $('#oldVidNote');
-    duckMusic();
-    vid.controls=false; vid.muted=false; vid.volume=1;
-    if(note) note.style.display='none';
-    try{ if(vid.error) vid.load(); }catch(_){}
-    const p=vid.play();
-    if(p && p.catch) p.catch(()=>{
-      vid.muted=true; const q=vid.play();
-      if(q&&q.catch) q.catch(()=>{
-        vid.controls=true; unduckMusic();
-        if(note){ note.textContent='▶️ Tap to play the video'; note.style.display='block'; }
-      });
-    });
-  });
-}
-function runOldVideo(){
-  const box=$('#oldVidBox'), vid=$('#oldVideo'), next=$('#oldVidNext'), note=$('#oldVidNote');
-  if(!box||!vid) return;
-  const wrapUp=(msg,ok)=>{
-    box.style.display='none'; box.classList.add('vidgone');
-    unduckMusic();
-    if(note){ note.textContent=msg; note.style.display='block'; }
-    if(next){ next.style.display='inline-flex'; next.style.animation='cardPop .7s var(--ease-spring) both'; }
-    if(ok) sparkleAt(window.innerWidth/2, window.innerHeight*.42);
-    refreshIcons();
-  };
-  if(state.billiVideoDead){ wrapUp('Video load nahi hua 🥲 — aage badho ✨', false); return; }
-  if(vid._onEnd) vid.removeEventListener('ended', vid._onEnd);
-  if(vid._onErr) vid.removeEventListener('error', vid._onErr);
-  box.style.display=''; box.classList.remove('vidgone');
-  if(next) next.style.display='none';
-  if(note) note.style.display='none';
-  vid.controls=false;
-  try{ vid.pause(); }catch(_){}
-  vid.muted=false; vid.volume=1;
-  try{ vid.currentTime=0; }catch(_){}
-  duckMusic();
-  let done=false;
-  const finish=(ok)=>{
-    if(done) return; done=true;
-    state.billiVideoDone = true;
-    if(!ok) state.billiVideoDead = true;
-    if(vid._onEnd) vid.removeEventListener('ended', vid._onEnd);
-    if(vid._onErr) vid.removeEventListener('error', vid._onErr);
-    box.classList.add('vidgone');
-    state.enterTimers.push(setTimeout(()=>wrapUp(ok?'Video khatam 😂 — aage badho ✨':'Video load nahi hua 🥲 — aage badho ✨', ok), 780));
-  };
-  vid._onEnd = ()=>finish(true);
-  vid._onErr = ()=>finish(false);
-  vid.addEventListener('ended', vid._onEnd, { once:true });
-  vid.addEventListener('error', vid._onErr, { once:true });
-  const p=vid.play();
-  if(p&&p.catch) p.catch(()=>{
-    vid.muted=true; const q=vid.play();
-    if(q&&q.catch) q.catch(()=>{
-      vid.controls=true; unduckMusic();
-      if(note){ note.textContent='▶️ Tap to play the video'; note.style.display='block'; }
-    });
-  });
 }
 
 /* ---------- Notes / flip cards ---------- */
@@ -773,56 +599,56 @@ function buildTimeline(){
 /* ---------- 26 September sections ---------- */
 const DAY_SECTIONS = {
   ind: {
-    title:'Indian History', sub:'26 September — Bharat ke itihaas me', color:'#5b8cff', icon:'landmark',
+    title:'Indian History', sub:'26 September — moments from India', color:'#5a8dd2', icon:'landmark',
     items:[
-      ['1919 — Rotary ki pehli meeting','Calcutta me Bharat ke pehle Rotary club ki pehli meeting hui; club 1920 me charter hua.'],
-      ['1932 — Gandhi ji ne anshan toda','Poona Pact ko British sarkar ki manzoori milne ke baad Gandhi ji ne apna chhe din ka upvaas samaapt kiya.'],
-      ['1998 — Sachin ka ODI record','Zimbabwe ke khilaaf 127* banaakar Sachin Tendulkar ne apni 18vi ODI century lagayi — us waqt ka world record.']
+      ['1919 — Rotary’s first meeting','The first meeting of India’s first Rotary club took place in Calcutta; the club was chartered in 1920.'],
+      ['1932 — Gandhi ends his fast','Mahatma Gandhi ended a six-day fast after the Poona Pact was accepted by the British government.'],
+      ['1998 — Sachin’s ODI record','Sachin Tendulkar scored 127 not out against Zimbabwe for his 18th ODI century — a world record at the time.']
     ]
   },
   indcel:{
-    title:'Indian Celebs', sub:'26 September ko paida hue Indian sitare', color:'#ff9a3c', icon:'star',
+    title:'Indian Celebs', sub:'Indian personalities born on 26 September', color:'#e9b56c', icon:'star',
     items:[
-      ['Ishwar Chandra Vidyasagar (1820)','Shikshak aur samaj sudharak; mahila shiksha aur vidhwa punarvivah ke liye awaaz uthayi.'],
-      ['Dev Anand (1923)','Hindi cinema ke evergreen actor, filmmaker aur producer.'],
-      ['Dr. Manmohan Singh (1932)','Arthashastri aur Bharat ke poorv Pradhan Mantri (2004–2014).'],
-      ['Archana Puran Singh (1962)','Indian actor aur comedy shows ki popular TV personality.'],
-      ['Chunky Pandey (1962)','Hindi cinema ke actor; comedy roles ke liye bhi mashhoor.']
+      ['Ishwar Chandra Vidyasagar (1820)','Teacher and social reformer who championed women’s education and widow remarriage.'],
+      ['Dev Anand (1923)','Evergreen Hindi film actor, filmmaker and producer.'],
+      ['Dr Manmohan Singh (1932)','Economist and former Prime Minister of India (2004–2014).'],
+      ['Archana Puran Singh (1962)','Indian actor and popular television personality.'],
+      ['Chunky Pandey (1962)','Hindi film actor known for his comic roles as well.']
     ]
   },
   days:{
-    title:'International Days', sub:'26 September ko duniya kya manati hai', color:'#b16bff', icon:'globe',
+    title:'International Days', sub:'What the world observes on 26 September', color:'#8e89d8', icon:'globe-2',
     items:[
-      ['Nuclear Weapons Elimination Day (UN)','Nuclear hathiyaaron ko poori tarah khatam karne ke liye UN ka awareness day.'],
-      ['European Day of Languages','Bhashaon ki diversity aur nayi languages seekhne ka jashn.'],
-      ['World Environmental Health Day','Saaf hawa, paani aur sehatmand environment ki ahmiyat yaad dilata hai.'],
-      ['World Contraception Day','Family planning aur sexual health par sahi jaankari badhane ka din.']
+      ['International Day for the Total Elimination of Nuclear Weapons','A UN awareness day calling for a world without nuclear weapons.'],
+      ['European Day of Languages','A celebration of language diversity and learning something new.'],
+      ['World Environmental Health Day','A reminder that clean air, clean water and a healthy environment matter.'],
+      ['World Contraception Day','A day for better information about family planning and sexual health.']
     ]
   },
   world:{
-    title:'World History', sub:'26 September ko duniya me kya hua tha', color:'#22c55e', icon:'history',
+    title:'World History', sub:'A few things that happened on 26 September', color:'#73ae98', icon:'history',
     items:[
-      ['1580 — Drake ki duniya ki yatra','Francis Drake Plymouth laute aur samundar ke raaste duniya ka chakkar poora kiya.'],
-      ['1687 — Parthenon ko nuksan','Athens me Venetian hamle ke dauran Parthenon ke andar barood phata aur imaarat ka bada hissa toot gaya.'],
-      ['1960 — TV par presidential debate','John F. Kennedy aur Richard Nixon ne America ki pehli televised presidential debate ki.'],
-      ['1983 — Nuclear false alarm','Soviet officer Stanislav Petrov ne missile warning ko false alarm samjha; woh sahi nikle.']
+      ['1580 — Drake completes his voyage','Francis Drake returned to Plymouth after completing a circumnavigation of the world.'],
+      ['1687 — The Parthenon is damaged','An explosion during a Venetian attack caused major damage to the Parthenon in Athens.'],
+      ['1960 — The first televised debate','John F Kennedy and Richard Nixon took part in America’s first televised presidential debate.'],
+      ['1983 — A nuclear false alarm','Soviet officer Stanislav Petrov judged a missile warning to be a false alarm — and was right.']
     ]
   },
   intcel:{
-    title:'International Celebs', sub:'Duniya bhar ke 26 September wale', color:'#ff5ccf', icon:'cake',
+    title:'International Celebs', sub:'People around the world born on 26 September', color:'#d783a7', icon:'cake',
     items:[
-      ['T. S. Eliot (1888)','Poet aur 1948 ke Nobel Prize in Literature winner.'],
-      ['George Gershwin (1898)','American composer; Rhapsody in Blue ke creator.'],
-      ['Olivia Newton-John (1948)','Singer aur Grease film ki star.'],
-      ['Linda Hamilton (1956)','The Terminator films me Sarah Connor ka role nibhaya.'],
-      ['Serena Williams (1981)','Tennis legend aur 23 Grand Slam singles titles ki winner.']
+      ['T S Eliot (1888)','Poet and winner of the 1948 Nobel Prize in Literature.'],
+      ['George Gershwin (1898)','American composer and creator of Rhapsody in Blue.'],
+      ['Olivia Newton-John (1948)','Singer and star of Grease.'],
+      ['Linda Hamilton (1956)','Actor who played Sarah Connor in The Terminator films.'],
+      ['Serena Williams (1981)','Tennis legend and winner of 23 Grand Slam singles titles.']
     ]
   }
 };
 
 function setupSections(){
   const modal = $('#secModal'); if(!modal) return;
-  const hide = ()=>modal.classList.remove('show');
+  const hide = ()=>{ modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); };
   $$('.secbtn').forEach(btn=>{
     btn.addEventListener('click', ()=>{
       const d = DAY_SECTIONS[btn.dataset.sec];
@@ -841,6 +667,7 @@ function setupSections(){
         row.appendChild(b); row.appendChild(s); body.appendChild(row);
       });
       modal.classList.add('show');
+      modal.setAttribute('aria-hidden','false');
       refreshIcons();
     });
   });
@@ -850,68 +677,48 @@ function setupSections(){
 
 /* ---------- Gift bridge ---------- */
 function setupGift(){
-  const bridge = $('#giftBridge'),
-        open   = $('#giftBridgeBtn'),
-        go     = $('#gbOpen'),
-        close  = $('#gbClose'),
-        sid    = $('#sidifyBtn'),
-        down   = $('#downloaderBtn'),
-        mov    = $('#moviesBtn'),
-        g5     = $('#gift5Btn');
+  const bridge = $('#giftBridge');
+  const open = $('#giftBridgeBtn');
+  const go = $('#gbOpen');
+  const close = $('#gbClose');
+  const sid = $('#sidifyBtn');
+  const down = $('#downloaderBtn');
+  const mov = $('#moviesBtn');
+  const app = $('#gift5Btn');
+
   if(open) open.addEventListener('click', ()=>{
     if(!bridge) return;
     bridge.classList.add('show');
+    bridge.setAttribute('aria-hidden','false');
     createConfetti({ particleCount:50, spread:80, origin:{ y:.5 }, scalar:.8 });
     refreshIcons();
   });
   if(bridge){
-    const hide = ()=>bridge.classList.remove('show');
+    const hide = ()=>{ bridge.classList.remove('show'); bridge.setAttribute('aria-hidden','true'); };
     if(close) close.addEventListener('click', hide);
     bridge.addEventListener('click', e=>{ if(e.target===bridge) hide(); });
   }
-  if(go) go.addEventListener('click', ()=>{ showToast('Gift khul raha hai... enjoy kar bro 🎁💙','#00e5ff'); bigConfetti(); });
-  if(sid) sid.addEventListener('click', ()=>{ showToast('Sidify khul raha hai 🎁💙','#b16bff'); bigConfetti(); });
-  if(down) down.addEventListener('click', ()=>{ showToast('Downloader khul raha hai 🎬💙','#22c55e'); bigConfetti(); });
-  if(mov) mov.addEventListener('click', ()=>{ showToast('Movies khul rahi hain... popcorn ready? 🍿💙','#b16bff'); bigConfetti(); });
-  if(g5) g5.addEventListener('click', ev=>{
-    ev.preventDefault();
-    const url = g5.getAttribute('href');
-    let fr = document.getElementById('apkFrame');
-    if(!fr){
-      fr = document.createElement('iframe');
-      fr.id='apkFrame'; fr.setAttribute('title','apk download');
-      fr.style.cssText='position:fixed;width:0;height:0;border:0;opacity:0;pointer-events:none';
-      document.body.appendChild(fr);
-    }
-    try{ fr.src = url; }catch(e){}
-    showToast('Taunt Buddy download shuru 📥 Downloads me check karo. Na chale to Chrome me kholo 💙','#22c55e');
-    sparkleAt(g5); bigConfetti();
-    setTimeout(()=>{ try{ fr.src='about:blank'; }catch(e){} }, 45000);
-  });
-  const g5c = $('#g5Copy');
-  if(g5c) g5c.addEventListener('click', ()=>{
-    const link = (g5 && g5.href) ? g5.href : CONFIG.GIFTS.tauntBuddy;
-    const done = ()=>{ showToast('Link copy ho gaya ✅ Chrome me paste karke download karo 💙','#b16bff'); sparkleAt(g5c); };
-    if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(link).then(done, ()=>showToast('Link: '+link,'#5b8cff'));
-    else showToast('Link: '+link,'#5b8cff');
-  });
+  if(go) go.addEventListener('click', ()=>{ showToast('Opening the Website Hub — enjoy it 🎁💙','#5a8dd2'); bigConfetti(); });
+  if(sid) sid.addEventListener('click', ()=>{ showToast('Opening Sidify 🎁💙','#8e89d8'); bigConfetti(); });
+  if(down) down.addEventListener('click', ()=>{ showToast('Opening the downloader 🎬💙','#73ae98'); bigConfetti(); });
+  if(mov) mov.addEventListener('click', ()=>{ showToast('Opening Movies 🍿💙','#e6927e'); bigConfetti(); });
+  if(app) app.addEventListener('click', ()=>{ showToast('Your direct APK download is starting 📥','#73ae98'); sparkleAt(app); });
 }
 
 /* ---------- Finale / wish send ---------- */
 function setupFinale(){
-  const send = $('#wishSendBtn'), ta = $('#wishMsg');
-  if(ta && !ta.value.trim()) ta.value = WISH_DRAFT;
+  const send = $('#wishSendBtn');
   if(send) send.addEventListener('click', ()=>{
     const el = $('#wishMsg');
     const v = ((el&&el.value)||'').trim();
-    if(!v){ showToast('Kuch toh likho pehle 😅','#ff9a3c'); if(el) el.focus(); return; }
+    if(!v){ showToast('Write something first 😅','#e9b56c'); if(el) el.focus(); return; }
     const text = encodeURIComponent(CONFIG.WISH_HEADER + '\n\n' + v);
     openExternal('https://wa.me/'+CONFIG.WA_NUMBER+'?text='+text);
-    showToast('WhatsApp khul raha hai... send karna mat bhoolna 💚','#22c55e');
+    showToast('Opening WhatsApp — do not forget to send it 💚','#73ae98');
     createConfetti({ particleCount:50, spread:70, origin:{ y:.62 }, scalar:.8 });
   });
   const cel = $('#celebrateBtn');
-  if(cel) cel.addEventListener('click', ()=>{ bigConfetti(); sparkleAt(cel); showToast('Party never ends 🎉💙','#5b8cff'); });
+  if(cel) cel.addEventListener('click', ()=>{ bigConfetti(); sparkleAt(cel); showToast('The party never ends 🎉💙','#5a8dd2'); });
   const replay = $('#rvReplay');
   if(replay) replay.addEventListener('click', runReveal);
 }
@@ -1038,11 +845,11 @@ function playIntroVideo(){
 function toggleMusic(){
   if(!audio) return;
   if(overlayKey){ stopOverlay(false); mainWasPlaying=false; return; }
-  if(audio.dataset.dead === 'true'){ showToast('Music abhi available nahi hai 🥲','#ff5ccf'); return; }
+  if(audio.dataset.dead === 'true'){ showToast('Music is not available right now 🥲','#e6927e'); return; }
   audio.volume = 0.5;
   if(audio.paused){
     const p = audio.play();
-    if(p && p.catch) p.catch(()=>showToast('Browser ne music rok diya — ek aur tap 🎵','#ff9a3c'));
+    if(p && p.catch) p.catch(()=>showToast('The browser paused the music — tap once more 🎵','#e9b56c'));
   } else { audio.pause(); }
 }
 function setupMusic(){
@@ -1064,7 +871,7 @@ function setupMusic(){
   audio.addEventListener('error', ()=>{
     if(overlayKey) return;
     audio.dataset.dead = 'true';
-    showToast('Music load nahi ho paaya 🥲','#ff5ccf');
+    showToast('Music could not be loaded 🥲','#e6927e');
   });
 }
 
@@ -1135,47 +942,20 @@ function setupGlobalEffects(){
     }
   }, { passive:true });
 
-  // Cloud drift speeds (we don't have clouds any more; we use sparkle orbs).
-  // Orbs animation timing is pure CSS — nothing to sync here.
+  // The clouds drift entirely in CSS, so there is no animation loop to maintain here.
 }
 
-/* ---------- Build ambient particles ---------- */
+/* ---------- Build the moving sky ---------- */
 function buildAmbient(){
   const bg = $('#bgLayer');
   if(!bg) return;
-  // grid
-  const grid = document.createElement('div');
-  grid.className = 'grid-bg';
-  bg.appendChild(grid);
-  // orbs
-  const orbs = [
-    { w:340, h:340, x:-100+'px', y:'6%',  c:'radial-gradient(circle,#5b8cff,transparent 70%)', d:'0s'  },
-    { w:400, h:400, x:'auto',   y:'28%', c:'radial-gradient(circle,#b16bff,transparent 70%)', d:'2s', r:true },
-    { w:300, h:300, x:-80+'px', y:'auto', c:'radial-gradient(circle,#00e5ff,transparent 70%)', d:'4s', b:'6%' },
-    { w:280, h:280, x:'auto',   y:'auto', c:'radial-gradient(circle,#ff5ccf,transparent 70%)', d:'6s', r:true, b:'-6%' }
-  ];
-  orbs.forEach(o=>{
-    const d = document.createElement('div');
-    d.className = 'orb';
-    d.style.width = o.w+'px'; d.style.height = o.h+'px';
-    if(o.x==='auto'){ d.style.right = '-100px'; } else { d.style.left = o.x; }
-    if(o.b){ d.style.bottom = o.b; if(!o.y) d.style.top='auto'; } else { d.style.top = o.y||'0'; }
-    d.style.background = o.c;
-    d.style.animationDelay = o.d;
-    bg.appendChild(d);
-  });
-  // little floating sparkle dots
-  for(let i=0;i<16;i++){
-    const s = document.createElement('div');
-    s.className = 'sparkle';
-    s.style.left = (Math.random()*100)+'%';
-    s.style.top  = (100+Math.random()*20)+'%';
-    s.style.animationDelay = -(Math.random()*8)+'s';
-    s.style.animationDuration = (6+Math.random()*6)+'s';
-    const hue = ['#00e5ff','#5b8cff','#b16bff','#ff5ccf'][(Math.random()*4)|0];
-    s.style.boxShadow = '0 0 10px 2px '+hue;
-    s.style.background = '#fff';
-    bg.appendChild(s);
+  // The first four clouds are in the markup so the sky paints immediately.
+  // Add one slower, distant cloud for larger screens without making the scene busy.
+  if(!bg.querySelector('.cloud-five')){
+    const cloud = document.createElement('div');
+    cloud.className = 'cloud cloud-five';
+    cloud.style.cssText = 'top:43%;left:-45%;transform:scale(.42);opacity:.28;animation:cloudAcross 132s linear 26s infinite';
+    bg.appendChild(cloud);
   }
 }
 
@@ -1197,8 +977,6 @@ function init(){
   if(introV) introV.src = CONFIG.INTRO_VIDEO;
   const rvV = $('#rvVideo');
   if(rvV) rvV.src = CONFIG.REVEAL_VIDEO;
-  const oldV = $('#oldVideo');
-  if(oldV) oldV.src = CONFIG.OLD_VIDEO;
   const bgm = $('#bgm');
   if(bgm) bgm.src = CONFIG.TRACKS.main;
 
@@ -1207,7 +985,6 @@ function init(){
   gateInitState();
   setupGate();
   setupQuiz();
-  setupCare();
   setupEnvelope();
   setupCandle();
   setupWish();
@@ -1218,7 +995,6 @@ function init(){
   setupFinale();
   setupGift();
   setupSections();
-  setupOldVideo();
   refreshIcons();
 }
 

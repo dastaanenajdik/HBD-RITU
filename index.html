@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="theme-color" content="#07070f" />
-<title>For Ritu Raz ♡ 26.09</title>
+<meta name="theme-color" content="#cfe9fb" />
+<title>For Bhai Ritu · 26.09</title>
+<meta name="description" content="A small birthday tribute for Bhai Ritu. 💙" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preload" as="style" href="assets/styles.css" />
 <link rel="preload" as="image" href="mini.jpg" />
 <link rel="dns-prefetch" href="files.catbox.moe" />
-<meta name="description" content="Happy Birthday Ritu Raz — a small surprise for my best bro. 💙" />
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
@@ -19,70 +19,74 @@
 </head>
 <body>
 
-<div class="bg-layer" id="bgLayer"></div>
-<div id="warmGlow"></div>
+<div class="bg-layer" id="bgLayer" aria-hidden="true">
+  <div class="sun-glow"></div>
+  <div class="cloud cloud-one"></div>
+  <div class="cloud cloud-two"></div>
+  <div class="cloud cloud-three"></div>
+  <div class="cloud cloud-four"></div>
+</div>
+<div id="warmGlow" aria-hidden="true"></div>
 
 <button id="musicPill" class="music-pill glass off" aria-label="Toggle music">
-  <i data-lucide="music"></i>
+  <i data-lucide="music-2"></i>
   <span id="musicLabel">MUSIC</span>
   <span class="wbars"><i></i><i></i><i></i><i></i></span>
 </button>
 
-<div id="toastWrap"></div>
+<div id="toastWrap" aria-live="polite"></div>
 
-<!-- Floating bro-cats -->
-<div class="fcat" id="fcat1" data-cat="f1">
+<!-- Floating billi: tap either one for the birthday audio. -->
+<div class="fcat" id="fcat1" data-cat="f1" role="button" tabindex="0" aria-label="Tap the cat for a message">
   <img src="https://media.tenor.com/GQAsycjoZG8AAAAi/scuba-scuba-cat.gif" alt="scuba cat" />
 </div>
-<div class="fcat" id="fcat2" data-cat="f2">
+<div class="fcat" id="fcat2" data-cat="f2" role="button" tabindex="0" aria-label="Tap the dancing cat for a message">
   <img src="https://media.tenor.com/ECATiSXWwm8AAAAm/dancing-cat-cat.webp" alt="dancing cat" />
 </div>
 
-<!-- History sections modal -->
-<div id="secModal">
-  <div class="sec-card">
+<!-- Timeline detail modal -->
+<div id="secModal" aria-hidden="true">
+  <div class="sec-card" role="dialog" aria-modal="true" aria-labelledby="secTitle">
     <button id="secClose" class="gb-x" aria-label="Close"><i data-lucide="x"></i></button>
     <div class="sec-ic" id="secIc"><i data-lucide="star"></i></div>
-    <h3 id="secTitle" class="font-hand font-bold" style="font-size:2rem;line-height:1;color:#fff;"></h3>
-    <p id="secSub" class="subtxt" style="font-size:.78rem;margin-top:2px;"></p>
+    <h3 id="secTitle" class="font-hand"></h3>
+    <p id="secSub" class="subtxt"></p>
     <div id="secBody" class="sec-body scrolly"></div>
   </div>
 </div>
 
-<!-- Gift bridge -->
-<div id="giftBridge">
-  <div class="gb-card">
-    <button id="gbClose" class="gb-x" aria-label="Close gift">
-      <i data-lucide="x"></i>
-    </button>
-    <h2 class="ivtxt" style="font-size:2.3rem;">ifallertzia gift 🚀</h2>
-    <p class="subtxt mt-1">Tera chhota sa map of the internet 💙</p>
+<!-- Website hub gift modal -->
+<div id="giftBridge" aria-hidden="true">
+  <div class="gb-card" role="dialog" aria-modal="true" aria-labelledby="giftBridgeTitle">
+    <button id="gbClose" class="gb-x" aria-label="Close gift"><i data-lucide="x"></i></button>
+    <p class="eyebrow">Gift number one</p>
+    <h2 id="giftBridgeTitle" class="ivtxt">Website Hub 🎁</h2>
+    <p class="subtxt mt-1">A little map of the internet, made for you.</p>
     <div class="gb-points">
-      <div class="gb-point"><i data-lucide="globe"></i><span>326 verified websites &amp; hidden gems — movies, tools, study resources, sab ek jagah.</span></div>
-      <div class="gb-point"><i data-lucide="layout-grid"></i><span>7 collections me saaf-saaf organized — dhundhna easy.</span></div>
-      <div class="gb-point"><i data-lucide="search"></i><span>Ek search se sab mil jata hai, tap kar — new tab me khul jata hai.</span></div>
-      <div class="gb-point"><i data-lucide="heart"></i><span>❤️ dabake favorites save, bina signup, bina jhanjhat.</span></div>
+      <div class="gb-point"><i data-lucide="globe-2"></i><span>Hundreds of useful websites and hidden gems in one place.</span></div>
+      <div class="gb-point"><i data-lucide="layout-grid"></i><span>Collections are organised so finding something is easy.</span></div>
+      <div class="gb-point"><i data-lucide="search"></i><span>Search once, then open what you need in a new tab.</span></div>
+      <div class="gb-point"><i data-lucide="heart"></i><span>Save favourites without a sign-up or extra fuss.</span></div>
     </div>
     <div class="gb-meme">
-      <span class="gb-memecap">Ritu bhai after visiting<br/>this site and gifts 😹</span>
-      <svg class="gb-memearrow" width="42" height="46" viewBox="0 0 46 52" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <span class="gb-memecap">Bhai after discovering<br />the whole gift list ✨</span>
+      <svg class="gb-memearrow" width="42" height="46" viewBox="0 0 46 52" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M8 4c14 2 26 12 26 30" />
         <path d="M25 30l9 8 8-9" />
       </svg>
       <img src="https://media.tenor.com/9zW066teoJoAAAAm/cat-crying-kitty.webp" alt="crying kitty" />
     </div>
     <a id="gbOpen" class="btn btn-primary btn-block mt-4" href="https://ifallgift.vercel.app/" target="_blank" rel="noopener noreferrer">
-      🎁 Open Gift
-      <i data-lucide="external-link"></i>
+      Open the gift <i data-lucide="external-link"></i>
     </a>
   </div>
 </div>
 
-<!-- Intro video -->
-<div id="introVid">
+<!-- Intro video shown after the PIN is accepted -->
+<div id="introVid" aria-label="Intro video">
   <div class="ivcap">
-    <span class="ivtxt">ye site banane wala 💙</span>
-    <svg class="ivarrow" width="46" height="52" viewBox="0 0 46 52" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <span class="ivtxt">A little note for you</span>
+    <svg class="ivarrow" width="46" height="52" viewBox="0 0 46 52" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M8 4c14 2 26 12 26 30" />
       <path d="M25 30l9 8 8-9" />
     </svg>
@@ -90,33 +94,25 @@
   <div class="vidframe" style="width:min(360px,92vw);">
     <video id="introVideo" playsinline preload="auto"></video>
   </div>
-  <button id="ivSkip" class="btn btn-ghost">Skip ✨</button>
+  <button id="ivSkip" class="btn btn-ghost">Skip <span aria-hidden="true">✦</span></button>
 </div>
 
-<!-- PIN Gate -->
+<!-- PIN gate -->
 <div id="gate">
   <div id="gateCard" class="glass">
-    <div class="flex justify-center mb-3">
-      <div class="glass rounded-full w-16 h-16 flex items-center justify-center" style="animation:cardPop .8s var(--ease-spring) both">
-        <i data-lucide="lock" class="text-[#00e5ff]" style="width:26px;height:26px;"></i>
-      </div>
-    </div>
-    <h2 class="font-hand font-bold text-4xl leading-none" style="color:#fff;">Just a little secret... 💌</h2>
-    <p class="subtxt mt-2 mb-1">Ye site sirf ek special bhai ke liye hai.</p>
-    <div class="flex items-center justify-center gap-2 mt-1" style="color:var(--neon-cyan)">
-      <i data-lucide="key-round" style="width:14px;height:14px"></i>
-      <span class="text-[11px] font-black tracking-[.25em] uppercase">Enter PIN</span>
-    </div>
+    <div class="gate-lock" aria-hidden="true"><i data-lucide="lock-keyhole"></i></div>
+    <p class="eyebrow">A private birthday note</p>
+    <h2>Just a little... 💌</h2>
+    <div class="pin-label"><i data-lucide="key-round"></i><span>Enter PIN</span></div>
     <div class="pin-row" id="pinRow">
       <input class="pin-box" type="tel" inputmode="numeric" maxlength="4" autocomplete="off" aria-label="PIN digit 1" autofocus />
       <input class="pin-box" type="tel" inputmode="numeric" maxlength="1" autocomplete="off" aria-label="PIN digit 2" />
       <input class="pin-box" type="tel" inputmode="numeric" maxlength="1" autocomplete="off" aria-label="PIN digit 3" />
       <input class="pin-box" type="tel" inputmode="numeric" maxlength="1" autocomplete="off" aria-label="PIN digit 4" />
     </div>
-    <p class="text-xs font-bold mt-1 mb-4" style="color:var(--neon-cyan)">Hint: 26 • 09 💙</p>
-    <button id="unlockBtn" class="btn btn-primary w-full">
-      Unlock the surprise
-      <i data-lucide="sparkles"></i>
+    <p class="pin-hint">Hint: 26 • 09 💙</p>
+    <button id="unlockBtn" class="btn btn-primary btn-block">
+      Unlock the surprise <i data-lucide="arrow-up-right"></i>
     </button>
   </div>
 </div>
@@ -125,92 +121,50 @@
 
   <!-- Slide 0 — Welcome -->
   <section class="slide" data-slide="0">
-    <div class="slide-inner">
-      <div class="glass rounded-full w-28 h-28 flex items-center justify-center bob" style="box-shadow:0 18px 50px -14px rgba(0,229,255,.5);">
-        <i data-lucide="zap" style="width:52px;height:52px;color:#00e5ff;"></i>
-      </div>
-      <h1 class="display-title">HEYYYY<br/>RITUUU</h1>
-      <p class="subtxt max-w-[300px]">Ek chhota sa, bohot solid surprise — sirf tere liye bro 👀.</p>
-      <button class="btn btn-primary btn-block mt-1" data-goto="1">
-        Chalu kar 🚀
-        <i data-lucide="arrow-right"></i>
+    <div class="slide-inner welcome-inner">
+      <div class="welcome-orbit" aria-hidden="true"><span>26</span><b>·</b><span>09</span></div>
+      <h1 class="display-title">HELLO<br /><span>BHAI</span></h1>
+      <p class="subtxt lead-copy">You made it here — a small tribute, that’s all.</p>
+      <button class="btn btn-primary btn-block" data-goto="1">
+        Start the tribute <i data-lucide="arrow-right"></i>
       </button>
-      <p class="text-[11px] font-bold tracking-wide" style="color:var(--neon-cyan)">swipe bhi kar sakta hai →</p>
+      <p class="swipe-hint"><i data-lucide="move-horizontal"></i> Swipe to explore</p>
     </div>
   </section>
 
-  <!-- Slide 1 — Quiz (YES/NO) -->
+  <!-- Slide 1 — Quiz -->
   <section class="slide" data-slide="1">
     <div class="slide-inner">
-      <div class="glass rounded-[28px] w-full p-6 bob">
+      <div class="feature-card quiz-card glass">
         <span class="chip">Round 1 · Quiz</span>
-        <h2 class="h-title mt-3">Ready hai iss chhote se adventure ke liye? 👀💙</h2>
-        <p class="subtxt mt-2 mb-5">Thoda time lagega... pehle hi bta de raha hoon.</p>
-        <div class="flex justify-center mb-2">
-          <button id="yesBtn" class="btn btn-primary btn-block">
-            <i data-lucide="check"></i>
-            CHAL BHAI
-          </button>
-        </div>
+        <h2 class="h-title">Are you ready?</h2>
+        <p class="subtxt">There is a little adventure ahead — take your time.</p>
+        <button id="yesBtn" class="btn btn-primary btn-block">
+          <i data-lucide="check"></i> YES, LET’S GO
+        </button>
         <div id="noArena" class="no-swipe">
-          <button id="noBtn" class="btn btn-secondary">🙅 NAHI</button>
+          <button id="noBtn" class="btn btn-secondary">NO</button>
         </div>
-        <p class="text-[11px] font-bold" style="color:var(--neon-cyan)">NO pe click mat karna hi 😎</p>
-        <button id="quizNext" class="btn btn-primary btn-block mt-2" data-goto="2" style="display:none;">
-          Aage badh ✨
-          <i data-lucide="arrow-right"></i>
+        <p class="tiny-note">Don’t click NO.</p>
+        <button id="quizNext" class="btn btn-primary btn-block" data-goto="2" style="display:none;">
+          Continue <i data-lucide="arrow-right"></i>
         </button>
       </div>
     </div>
   </section>
 
-  <!-- Slide 2 — Care meter -->
+  <!-- Slide 2 — Memories letter -->
   <section class="slide" data-slide="2">
     <div class="slide-inner">
-      <div class="glass rounded-[28px] w-full p-6 bob">
-        <span class="chip" style="background:rgba(34,197,94,.15);color:var(--neon-lime);border-color:rgba(34,197,94,.3);">Round 2 · Bro Meter</span>
-        <h2 class="h-title mt-3" style="font-size:clamp(1.7rem,6.4vw,2.3rem);line-height:1.15;">How much your dost cares for you? 💙</h2>
-        <p class="subtxt mt-2 mb-1">Jo jawab chahiye wahi milna chahiye...😌</p>
-        <div id="careArena" class="no-swipe">
-          <button id="careOpt1" class="care-dodge btn btn-grape" data-care="1">😞 Bilkul nahi karta</button>
-          <button id="careOpt2" class="care-dodge btn btn-sun" data-care="2">🤏 Thoda bahut</button>
-        </div>
-        <button id="careYes" class="btn btn-primary btn-block">
-          <i data-lucide="zap"></i>
-          💙 BOHOT JYADA
-        </button>
-        <div id="careResult" class="mt-4" style="display:none;">
-          <div class="flex items-end justify-center gap-1 mb-2">
-            <i data-lucide="heart" style="width:20px;height:20px;color:#00e5ff"></i>
-            <span id="meterPct" class="font-hand font-bold text-6xl leading-none" style="color:#fff;">0%</span>
-          </div>
-          <div class="meter-shell" id="meterWrap">
-            <div id="meterFill"></div>
-          </div>
-          <p id="meterMsg" class="subtxt mt-3 min-h-[40px]">Calculating...</p>
-          <button id="careNext" class="btn btn-primary btn-block mt-2" data-goto="3" style="display:none;">
-            Aage, yaadon ki taraf 💌
-            <i data-lucide="arrow-right"></i>
-          </button>
-        </div>
-      </div>
-      <p class="text-[11px] font-bold tracking-wide" style="color:var(--neon-cyan)">sahi jawab ek hi hai, aur tujhe pata hai bro 🤝</p>
-    </div>
-  </section>
-
-  <!-- Slide 3 — Envelope / Memories letter -->
-  <section class="slide" data-slide="3">
-    <div class="slide-inner">
-      <h2 class="h-title">yaadein... 💌</h2>
-      <p class="subtxt -mt-2">Envelope pe tap karke kholna.</p>
+      <span class="eyebrow">A page from us</span>
+      <h2 class="h-title">Memories 💌</h2>
+      <p class="subtxt section-intro">Tap the envelope to open it.</p>
       <div id="envScene" class="no-swipe">
-        <div id="env" role="button" aria-label="Open envelope">
+        <div id="env" role="button" tabindex="0" aria-label="Open the memories envelope">
           <div class="env-body"></div>
-          <div class="env-letter">
-            <i data-lucide="mail" style="width:26px;height:26px;color:#5b8cff"></i>
-          </div>
+          <div class="env-letter"><i data-lucide="heart"></i></div>
           <div class="env-pocket"></div>
-          <div class="env-seal"><i data-lucide="zap" style="width:20px;height:20px"></i></div>
+          <div class="env-seal"><i data-lucide="sparkles"></i></div>
           <div class="env-flap"></div>
         </div>
       </div>
@@ -218,360 +172,202 @@
         <div class="paper">
           <div class="washi"></div>
           <div class="letter-scroll scrolly">
-            <p>Hmko hamari pehli baat ki exact date ya text to yaad nahi, na hi yaad hai ki hum pehle kaha mile the — par woh pehla "bhai" jo tujhse mila tha, usne alag hi feel diya tha 🤝</p>
-            <p>Jab bhi baat karte hai, chahe kuch bhi ho raha ho, mood automatically theek ho jata hai. Bakchodi karni ho, gyaan dena ho, ya bas silent baithe rehna ho — tu woh banda hai jiske saath sab chalta hai 🎮</p>
-            <p>Late night calls, chai ke saath gappe, random plans jo kabhi kabhi actually ban jaate hai, aur woh saare moments jab tu hamesha saath khada rehta hai — ye sab cheezein life me bohot rare milti hai bro ✨</p>
-            <p>Jab bhi mushkil me tha, ya overthink kar raha tha, ya bas ek sahi advice chahiye thi — tu hamesha aaya, bina koi drama kiye, bina koi favours ginwaye. Aise dost kaha milte hai aaj kal 😮‍💨💙</p>
-            <p>Waise pehle pehle mujhe nahi pata tha ki tu itna achha dost niklega, lekin aaj tu meri life ke un 4-5 logo me se hai jinke liye main hamesha available hoon — koi bhi time, koi bhi jagah. Ye permanent waali dosti hai, no expiry date 🚀</p>
-            <p>Toh aaj bas itna hi — happy birthday bhai. Jo bhi chahiye tujhe, tere liye hamesha dua karunga. Aur haan, party toh tu de raha hai, usme meri pizza aur cold drink confirm hai, no backsies 😂🍻</p>
-            <p class="letter-sign">— ifallertzia (tera yaar)</p>
+            <p lang="hi">Bhai dekh asal me to hmko ydd nahi hm log kis din mile the,ha kon mahina tha,pr hm 9th me the Aur shayad 9th class ka ending hi tha tb,,first talk to yahi hua tha ki..chair lena tha hmko to hm bole the ki bhaiya thoda wo chair dijiye,,tum diya tha..phir uske baad se do tin din baad se bahar khade hoke(jb sir ka late hota tha tb) hm log baat krte the andr jane se pehle...to tb ka time ekdam best tha...mast hm log baat waat krte the,,,phir game wame khelne lge sath me,,phir kya kya natak,sb shuru hogya tha....to yaadein to kya,,YHI ki🙂tb koi tension jayada nahi tha,,ha class ka tha,pr ab jitna to nahi tha na...tb hi achcha tha bhai,,ab to khakh sala..bakwas life,, feeling of emptyness....khair...hm to hai hi,tum bhi hai hi,baat waat krne ka man kre,ha koi bhi topic,out of the world bhi koi topic ho,to ha...tum kr skta hai hmse..khair ye sb yaha konchi likhna,last me to yahi🥲ki thanks bhai...hm jaisa gawar insaan se dosti..abhi tk rakhne k liye..</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Slide 4 — Photo -->
+  <!-- Slide 3 — Photo -->
+  <section class="slide" data-slide="3">
+    <div class="slide-inner">
+      <div class="photo-frame glass no-swipe">
+        <span class="photo-sticker sticker-one">✦</span>
+        <span class="photo-sticker sticker-two">💙</span>
+        <div class="photo-wrap"><img id="memPhoto" alt="Ritu — a birthday memory" /></div>
+        <div class="heart-badge glass"><i data-lucide="heart"></i></div>
+        <div class="photo-cap">Bas Kaali Legend</div>
+      </div>
+      <p class="subtxt photo-copy">Keep laughing, keep having fun, Ritu. If you ever need anything — or just want to talk — <strong>Bhai is just one call away.</strong></p>
+    </div>
+  </section>
+
+  <!-- Slide 4 — Candle -->
   <section class="slide" data-slide="4">
     <div class="slide-inner">
-      <div class="photo-frame glass bob no-swipe w-full max-w-[330px]">
-        <span class="glow-bolt" style="left:-12px;top:-14px;">⚡</span>
-        <span class="glow-bolt" style="right:-10px;top:-16px;animation-delay:.7s;">💥</span>
-        <span class="glow-bolt" style="left:-14px;bottom:52px;animation-delay:1.4s;">🚀</span>
-        <span class="glow-bolt" style="right:-13px;bottom:74px;animation-delay:2.1s;">🔥</span>
-        <span class="glow-bolt" style="left:46%;top:-20px;font-size:1.2rem;animation-delay:1s;">💙</span>
-        <div class="photo-wrap">
-          <img id="memPhoto" alt="Ritu Raz — a memory" />
-        </div>
-        <div class="heart-badge glass">
-          <i data-lucide="zap" style="width:20px;height:20px;color:#00e5ff"></i>
-        </div>
-        <div class="photo-cap">Legend hai bhai 😎</div>
+      <span class="eyebrow warm-eyebrow">A little birthday tradition</span>
+      <h2 class="h-title">Make a wish 🕯️</h2>
+      <p class="subtxt section-intro">Tap the candle and let the good energy in.</p>
+      <div class="candle-wrap no-swipe" id="candleEl" role="button" tabindex="0" aria-label="Light the candle">
+        <div class="candle-glow"></div><div class="flame"></div><div class="wick"></div><div class="wax"></div><div class="candle-plate"></div>
       </div>
-      <p class="subtxt max-w-[300px]">Aise hi hasta reh, masti karte reh Ritu 💙<br/>Aur agar kabhi bhi kuch chahiye, ya bas baat karni hai — yaar bas ek call door hai.</p>
+      <p class="tiny-note">Tap gently — it is just for the vibe.</p>
     </div>
   </section>
 
-  <!-- Slide 5 — Wait -->
+  <!-- Slide 5 — Cake -->
   <section class="slide" data-slide="5">
     <div class="slide-inner">
-      <div class="glass rounded-full w-24 h-24 flex items-center justify-center bob">
-        <i data-lucide="gamepad-2" style="width:42px;height:42px;color:#00e5ff"></i>
-      </div>
-      <div class="flex items-end justify-center">
-        <h1 class="display-title" style="font-size:clamp(3.6rem,14vw,5.6rem)">WAIT</h1>
-        <div class="wait-dots font-hand font-bold" style="margin-left:2px;">
-          <span>.</span><span>.</span><span>.</span>
-        </div>
-      </div>
-      <p class="subtxt max-w-[280px]">Thoda sa sabr...<br/>kuch <em class="font-hand text-xl" style="color:#00e5ff;text-shadow:0 0 10px rgba(0,229,255,.5);">bohot</em> special load ho raha hai.</p>
-      <button class="btn btn-secondary btn-block mt-2" data-goto="6">
-        Theek, aage badh ✨
-        <i data-lucide="arrow-right"></i>
-      </button>
-    </div>
-  </section>
-
-  <!-- Slide 6 — Who reveal -->
-  <section class="slide" data-slide="6">
-    <div class="slide-inner">
-      <span class="chip glass">Suspense intensifies</span>
-      <h2 class="h-title">WHO IS THIS FOR? 👀</h2>
-      <div class="min-h-[150px] flex flex-col items-center justify-center gap-3">
-        <p id="whoA" class="who-line font-hand text-4xl font-bold" style="color:var(--neon-cyan);">...</p>
-        <p id="whoB" class="who-line text-lg font-extrabold" style="color:#fff;">Someone very special... 💙</p>
-        <p id="whoC" class="who-line">RITUUU ✨</p>
-      </div>
-      <button class="btn btn-primary btn-block" data-goto="7">
-        Haan haan, aageeeeee ✨
-        <i data-lucide="arrow-right"></i>
-      </button>
-    </div>
-  </section>
-
-  <!-- Slide 7 — Candle -->
-  <section class="slide" data-slide="7">
-    <div class="slide-inner">
-      <span class="chip glass" style="color:#ff9a3c;">Tradition lalaaa</span>
-      <h2 class="h-title">Ek candle moment toh banta hai 🕯️✨</h2>
-      <p class="subtxt -mt-2">Candle pe tap kar — aur positive energy feel kar.</p>
-      <div class="candle-wrap no-swipe" id="candleEl" role="button" aria-label="Light the candle">
-        <div class="candle-glow"></div>
-        <div class="flame"></div>
-        <div class="wick"></div>
-        <div class="wax"></div>
-        <div class="candle-plate"></div>
-      </div>
-      <p class="text-[11px] font-bold tracking-wide" style="color:var(--neon-cyan)">garam nahi hai, promise 🤞</p>
-    </div>
-  </section>
-
-  <!-- Slide 8 — Cake -->
-  <section class="slide" data-slide="8">
-    <div class="slide-inner">
-      <h2 class="h-title">Cake Time 🎂</h2>
-      <p class="subtxt -mt-2">Close your eyes and make a wish bhai 🎂✨</p>
-      <button id="wishBtn" class="btn btn-primary btn-block">
-        <i data-lucide="sparkles"></i>
-        I Made My Wish
-      </button>
-      <div id="cakeStage" class="no-swipe mt-1">
+      <span class="eyebrow">The birthday table</span>
+      <h2 class="h-title">Cake time 🎂</h2>
+      <p class="subtxt section-intro">Close your eyes and make a wish, bhai.</p>
+      <button id="wishBtn" class="btn btn-primary btn-block"><i data-lucide="sparkles"></i> I MADE MY WISH</button>
+      <div id="cakeStage" class="no-swipe">
         <div id="cutLine"></div>
         <div class="cake-pos">
           <div class="cake-piece piece-l">
-            <div class="ck-plate"></div>
-            <div class="ck-base"></div>
-            <div class="ck-mid"></div>
-            <div class="ck-candle" style="left:74px;"></div>
-            <div class="ck-candle" style="left:108px;"></div>
-            <div class="ck-candle" style="left:142px;"></div>
-            <div class="ck-flame" style="left:73px;"></div>
-            <div class="ck-flame" style="left:107px;"></div>
-            <div class="ck-flame" style="left:141px;"></div>
+            <div class="ck-plate"></div><div class="ck-base"></div><div class="ck-mid"></div>
+            <div class="ck-candle" style="left:74px"></div><div class="ck-candle" style="left:108px"></div><div class="ck-candle" style="left:142px"></div>
+            <div class="ck-flame" style="left:73px"></div><div class="ck-flame" style="left:107px"></div><div class="ck-flame" style="left:141px"></div>
           </div>
           <div class="cake-piece piece-r">
-            <div class="ck-plate"></div>
-            <div class="ck-base"></div>
-            <div class="ck-mid"></div>
-            <div class="ck-candle" style="left:74px;"></div>
-            <div class="ck-candle" style="left:108px;"></div>
-            <div class="ck-candle" style="left:142px;"></div>
-            <div class="ck-flame" style="left:73px;"></div>
-            <div class="ck-flame" style="left:107px;"></div>
-            <div class="ck-flame" style="left:141px;"></div>
+            <div class="ck-plate"></div><div class="ck-base"></div><div class="ck-mid"></div>
+            <div class="ck-candle" style="left:74px"></div><div class="ck-candle" style="left:108px"></div><div class="ck-candle" style="left:142px"></div>
+            <div class="ck-flame" style="left:73px"></div><div class="ck-flame" style="left:107px"></div><div class="ck-flame" style="left:141px"></div>
           </div>
         </div>
-        <div id="cutter"><i data-lucide="wand-sparkles" style="width:13px;height:13px;"></i>MAGIC CUT</div>
+        <div id="cutter"><i data-lucide="wand-sparkles"></i> MAGIC CUT</div>
       </div>
-      <p class="text-[11px] font-bold tracking-wide" style="color:var(--neon-cyan);">Drag the magic cutter across the cake 🎂✨</p>
-      <button id="cakeContinue" class="btn btn-secondary btn-block" style="display:none;">
-        Cake ho gaya cut — aage
-        <i data-lucide="arrow-right"></i>
-      </button>
+      <p class="tiny-note">Drag the magic cutter across the cake.</p>
+      <button id="cakeContinue" class="btn btn-secondary btn-block" style="display:none;">Cake is ready — continue <i data-lucide="arrow-right"></i></button>
     </div>
   </section>
 
-  <!-- Slide 9 — Birthday reveal video -->
-  <section class="slide" data-slide="9">
+  <!-- Slide 6 — Birthday reveal video -->
+  <section class="slide" data-slide="6">
     <div class="slide-inner">
       <div id="rvVidBox" class="vidframe no-swipe" style="width:min(340px,88vw);">
         <video id="rvVideo" playsinline preload="auto"></video>
       </div>
-      <div id="rvC" class="hidden flex-col items-center gap-3">
-        <i data-lucide="party-popper" style="width:38px;height:38px;color:#00e5ff;"></i>
-        <h1 id="hbBright">HAPPY<br/>BIRTHDAY! 🎉</h1>
-        <p class="subtxt max-w-[300px]">Aaj ka din bas tera hai — jo mann kare kar, masti kar, khush reh, full party mode 💙</p>
-        <button id="rvReplay" class="btn btn-ghost">
-          <i data-lucide="rotate-ccw"></i>
-          Again 🚀
-        </button>
+      <div id="rvC" class="reveal-content hidden">
+        <i data-lucide="party-popper" class="reveal-icon"></i>
+        <h1 id="hbBright">HAPPY<br />BIRTHDAY, BHAI! 🎉</h1>
+        <p class="subtxt">Today is yours — keep smiling, keep growing, and enjoy every little thing.</p>
+        <button id="rvReplay" class="btn btn-ghost"><i data-lucide="rotate-ccw"></i> Play again</button>
       </div>
     </div>
   </section>
 
-  <!-- Slide 10 — Billi video break -->
-  <section class="slide" data-slide="10">
+  <!-- Slide 7 — Notes intro -->
+  <section class="slide" data-slide="7">
     <div class="slide-inner">
-      <span class="chip glass">Mandatory break</span>
-      <div id="oldVidSection" class="flex flex-col items-center gap-2 w-full">
-        <p class="vidcaption">Tera future version 10 saal baad 😂🚀</p>
-        <div id="oldVidBox" class="vidframe no-swipe" role="button" aria-label="Play the video" style="width:min(300px,80vw);">
-          <video id="oldVideo" playsinline preload="auto"></video>
-        </div>
-        <p id="oldVidNote" class="text-[11px] font-bold tracking-wide" style="color:var(--neon-cyan);display:none;"></p>
-        <button id="oldVidNext" class="btn btn-primary btn-block mt-1" data-goto="11" style="display:none;">
-          Aage badho
-          <i data-lucide="arrow-right"></i>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Slide 11 — Notes intro -->
-  <section class="slide" data-slide="11">
-    <div class="slide-inner">
-      <span class="chip glass" style="color:#b16bff;border-color:rgba(177,107,255,.35);background:rgba(177,107,255,.12);">Feelings zone</span>
-      <h2 class="h-title" style="line-height:1.15;">Ab dosti ki baari 💌</h2>
-      <p class="subtxt -mt-1 max-w-[310px]">Kuch notes likhe hain tere liye — har card pe tap karke ek-ek karke kholna.</p>
+      <span class="eyebrow">A few special things</span>
+      <h2 class="h-title">About our friendship 💌</h2>
+      <p class="subtxt section-intro">I wrote a few notes for you — tap each heart card to open them one by one.</p>
       <div class="lockstack" aria-hidden="true">
-        <div class="lockmini" style="--r:-8deg; background:linear-gradient(135deg,#00c6ff,#0072ff);"><i data-lucide="lock"></i></div>
-        <div class="lockmini" style="--r:5deg; background:linear-gradient(135deg,#5b8cff,#b16bff);"><i data-lucide="lock"></i></div>
-        <div class="lockmini" style="--r:-4deg; background:linear-gradient(135deg,#22c55e,#0ea5e9);"><i data-lucide="lock"></i></div>
-        <div class="lockmini" style="--r:7deg; background:linear-gradient(135deg,#ff9a3c,#ff5ccf);"><i data-lucide="lock"></i></div>
+        <div class="lockmini lock-a"><i data-lucide="heart"></i></div>
+        <div class="lockmini lock-b"><i data-lucide="heart"></i></div>
+        <div class="lockmini lock-c"><i data-lucide="heart"></i></div>
+        <div class="lockmini lock-d"><i data-lucide="heart"></i></div>
       </div>
-      <button class="btn btn-primary btn-block mt-2" data-goto="12">
-        Notes kholo
-        <i data-lucide="arrow-right"></i>
-      </button>
+      <button class="btn btn-primary btn-block" data-goto="8">Open the notes <i data-lucide="arrow-right"></i></button>
     </div>
   </section>
 
-  <!-- Slide 12 — Notes -->
-  <section class="slide" data-slide="12">
-    <div class="slide-inner">
-      <span class="chip glass">Bro-delivered</span>
-      <h2 class="h-title">Little notes for you 💙</h2>
-      <p class="subtxt -mt-2">Har CARD pe tap kar — flip hokar note khul jayega ✨</p>
-      <div id="notesWrap" class="scrolly w-full flex flex-col gap-3 pr-1" style="max-height:52dvh;"></div>
+  <!-- Slide 8 — Notes -->
+  <section class="slide" data-slide="8">
+    <div class="slide-inner notes-inner">
+      <span class="chip">Delivered</span>
+      <h2 class="h-title">A few notes for you 💙</h2>
+      <p class="subtxt section-intro">Tap a card to turn it over.</p>
+      <div id="notesWrap" class="scrolly notes-wrap"></div>
     </div>
   </section>
 
-  <!-- Slide 13 — History + Timeline -->
-  <section class="slide" data-slide="13">
-    <div class="slide-inner scrolly" style="justify-content:flex-start;gap:12px;padding:2px 2px 8px">
-      <span class="chip glass mt-1">
-        <i data-lucide="calendar-days" style="width:13px;height:13px"></i>
-        26 September — Tera Din ✨
-      </span>
-      <h2 class="h-title" style="font-size:clamp(1.7rem,6.2vw,2.3rem);line-height:1.15">Janta hai aaj kya kya hua tha? 👀</h2>
-      <p class="subtxt -mt-1">Har section pe tap kar — chhota sa page khulega 💙</p>
+  <!-- Slide 9 — 26 September timeline -->
+  <section class="slide" data-slide="9">
+    <div class="slide-inner timeline-inner scrolly">
+      <span class="chip"><i data-lucide="calendar-days"></i> 26 September · Your day</span>
+      <h2 class="h-title">Do you know what happened today? 👀</h2>
+      <p class="subtxt section-intro">Tap any section for a little page from the date.</p>
       <div class="sec-grid">
-        <button class="secbtn" data-sec="ind" style="--sc:#5b8cff">
-          <i data-lucide="landmark"></i>
-          <span>Indian History</span>
-        </button>
-        <button class="secbtn" data-sec="indcel" style="--sc:#ff9a3c">
-          <i data-lucide="star"></i>
-          <span>Indian Celebs</span>
-        </button>
-        <button class="secbtn" data-sec="days" style="--sc:#b16bff">
-          <i data-lucide="globe"></i>
-          <span>International Days</span>
-        </button>
-        <button class="secbtn" data-sec="world" style="--sc:#22c55e">
-          <i data-lucide="history"></i>
-          <span>World History</span>
-        </button>
-        <button class="secbtn secbtn-wide" data-sec="intcel" style="--sc:#ff5ccf">
-          <i data-lucide="cake"></i>
-          <span>International Celebs</span>
-        </button>
+        <button class="secbtn" data-sec="ind" style="--sc:#5c8fd8"><i data-lucide="landmark"></i><span>Indian history</span></button>
+        <button class="secbtn" data-sec="indcel" style="--sc:#e7a34e"><i data-lucide="star"></i><span>Indian celebs</span></button>
+        <button class="secbtn" data-sec="days" style="--sc:#8b88d9"><i data-lucide="globe-2"></i><span>International days</span></button>
+        <button class="secbtn" data-sec="world" style="--sc:#63a881"><i data-lucide="history"></i><span>World history</span></button>
+        <button class="secbtn secbtn-wide" data-sec="intcel" style="--sc:#d783a7"><i data-lucide="cake"></i><span>International celebs</span></button>
       </div>
-      <div class="w-full text-left">
-        <h4 class="font-hand font-bold text-2xl mb-1 ml-1" style="color:#fff;text-shadow:0 0 12px rgba(0,229,255,.4);">Hamari timeline 🗓️</h4>
-        <div id="timeline" class="w-full pl-1"></div>
+      <div class="timeline-block">
+        <h4 class="font-hand">Our timeline</h4>
+        <div id="timeline"></div>
       </div>
     </div>
   </section>
 
-  <!-- Slide 14 — Finale / Gifts -->
-  <section class="slide" data-slide="14">
-    <div class="slide-inner scrolly" style="justify-content:flex-start;gap:12px;padding:2px 2px 8px">
-      <div class="glass rounded-[30px] w-full p-6 bob">
-        <div class="flex justify-center gap-1 mb-2" style="color:#00e5ff">
-          <i data-lucide="heart" style="width:16px;height:16px"></i>
-          <i data-lucide="heart" style="width:22px;height:22px"></i>
-          <i data-lucide="heart" style="width:16px;height:16px"></i>
-        </div>
-        <h2 class="h-title" style="font-size:clamp(2rem,8.5vw,2.8rem)">Happiest Birthday,<br/>Ritu Raz! 🎂💙</h2>
-        <p class="subtxt mt-3">Bas itna kehna tha — duniya thodi si chaotic hai, par usme tujh jaise dost mil jaayein to jeena asaan ho jata hai. Masti karte rehna, aage badhte rehna, aur tera ye yaar hamesha ek call door hai.</p>
-        <p class="font-hand text-2xl font-bold mt-2" style="color:#00e5ff;text-shadow:0 0 10px rgba(0,229,255,.5);">26.09 — officially tera din. ✨</p>
-        <div class="flex flex-col gap-2 mt-4">
-          <button id="celebrateBtn" class="btn btn-primary btn-block">
-            <i data-lucide="party-popper"></i>
-            Celebrate Again
-          </button>
-          <button class="btn btn-ghost btn-block" data-goto="0">
-            <i data-lucide="rotate-ccw"></i>
-            Shuru se
-          </button>
+  <!-- Slide 10 — Finale and gifts -->
+  <section class="slide" data-slide="10">
+    <div class="slide-inner finale-inner scrolly">
+      <div class="final-card glass">
+        <div class="final-hearts" aria-hidden="true"><i data-lucide="heart"></i><i data-lucide="heart"></i><i data-lucide="heart"></i></div>
+        <h2 class="h-title">Happiest Birthday,<br />Bhai Ritu! 🎂💙</h2>
+        <p class="subtxt final-copy">The world is a little chaotic, but finding a brother like you makes life easier. Keep having fun, keep moving forward, and your brother is always one call away.</p>
+        <p class="date-note">26.09 — officially your day. ✦</p>
+        <div class="final-actions">
+          <button id="celebrateBtn" class="btn btn-primary btn-block"><i data-lucide="party-popper"></i> Celebrate again</button>
+          <button class="btn btn-ghost btn-block" data-goto="0"><i data-lucide="rotate-ccw"></i> Start over</button>
         </div>
       </div>
 
-      <div class="glass rounded-[26px] w-full p-5 text-left">
-        <h3 class="font-hand font-bold text-3xl leading-none" style="color:#fff;">💙 Dost Ka Wish Box 🎁</h3>
-        <p class="subtxt mt-1">Ab teri baari hai 😌 Jaane se pehle kuch likh ke jaa.</p>
-        <textarea id="wishMsg" rows="6" maxlength="500" placeholder="Apna birthday wish yahan likho... ✍️" class="glass w-full rounded-2xl p-4 mt-3 text-sm font-bold outline-none" style="color:var(--ink);border:1.5px solid var(--border-glow);resize:none;background:rgba(255,255,255,.04);"></textarea>
-        <p class="subtxt mt-1" style="font-size:.72rem;">Message ready hai — edit kar sakta hai, phir send 💙</p>
-        <button id="wishSendBtn" class="btn btn-mint w-full mt-3">
-          💚 Send To Yaar
-          <i data-lucide="send"></i>
-        </button>
+      <div class="wish-card glass">
+        <h3>Bhai Ka Wish Box 🎁</h3>
+        <p class="subtxt">Now it’s your turn — write something before you go.</p>
+        <textarea id="wishMsg" rows="5" maxlength="500" aria-label="Your birthday message"></textarea>
+        <button id="wishSendBtn" class="btn btn-primary btn-block mt-3">Send To Bhai <i data-lucide="send"></i></button>
       </div>
 
-      <div class="glass rounded-[26px] w-full p-5">
-        <h3 class="font-hand font-bold text-3xl leading-none" style="color:#fff;">🎁 Gift #1 — Website Hub</h3>
-        <p class="subtxt mt-1">Maine banaya hai, sirf tere liye 😌💙<br/>300+ useful sites ek jagah, organized, searchable — full desi jugaad.</p>
-        <button id="giftBridgeBtn" class="btn btn-primary btn-block mt-3">
-          🎀 Open Gift
-        </button>
+      <div class="gift-lead">
+        <p class="eyebrow">The rest of the gifts</p>
+        <h3 class="font-hand">A list, one more time 🎁</h3>
+        <p class="subtxt">I could not keep these surprises to myself, so you may have already seen them. Here they are again, all in one place.</p>
       </div>
 
-      <div class="glass rounded-[26px] w-full p-5">
-        <h3 class="font-hand font-bold text-3xl leading-none" style="color:#fff;">✨ Gift #2 — Sidify</h3>
-        <p class="subtxt mt-1">Ekdum alag wala surprise, ek hi tap me 🎁💙</p>
-        <a id="sidifyBtn" class="btn btn-secondary btn-block mt-3" href="https://sidify.vercel.app/" target="_blank" rel="noopener noreferrer">
-          ✨ Open Sidify
-          <i data-lucide="external-link"></i>
-        </a>
+      <div class="gift-card glass">
+        <span class="gift-number">01</span>
+        <h3>Website Hub</h3>
+        <p class="subtxt">300+ useful websites in one organised, searchable place.</p>
+        <button id="giftBridgeBtn" class="btn btn-primary btn-block mt-3">Open Website Hub <i data-lucide="external-link"></i></button>
       </div>
 
-      <div class="glass rounded-[26px] w-full p-5">
-        <h3 class="font-hand font-bold text-3xl leading-none" style="color:#fff;">⬇️ Gift #3 — Downloader</h3>
-        <p class="subtxt mt-1">Videos, reels, songs — jo chahiye, ek tap me download 🎬💙</p>
-        <a id="downloaderBtn" class="btn btn-mint btn-block mt-3" href="https://ifallertzia-downloader.vercel.app/" target="_blank" rel="noopener noreferrer">
-          ⬇️ Open Downloader
-          <i data-lucide="external-link"></i>
-        </a>
+      <div class="gift-card glass">
+        <span class="gift-number">02</span>
+        <h3>Sidify · Special Edition</h3>
+        <p class="subtxt">Your special edition will be released soon. ✦</p>
+        <a id="sidifyBtn" class="btn btn-secondary btn-block mt-3" href="https://sidify.vercel.app/" target="_blank" rel="noopener noreferrer">Open Sidify <i data-lucide="external-link"></i></a>
       </div>
 
-      <div class="glass rounded-[26px] w-full p-5">
-        <h3 class="font-hand font-bold text-3xl leading-none" style="color:#fff;">🍿 Gift #4 — Movies</h3>
-        <p class="subtxt mt-1">Movie night ka plan ready hai — bas popcorn aur cold drink leke aa jana 🍿😎</p>
-        <a id="moviesBtn" class="btn btn-grape btn-block mt-3" href="https://new4.eonmovies.click/" target="_blank" rel="noopener noreferrer">
-          🍿 Open Movies
-          <i data-lucide="external-link"></i>
-        </a>
+      <div class="gift-card glass">
+        <span class="gift-number">03</span>
+        <h3>Downloader</h3>
+        <p class="subtxt">A simple place for videos, reels and songs.</p>
+        <a id="downloaderBtn" class="btn btn-secondary btn-block mt-3" href="https://ifallertzia-downloader.vercel.app/" target="_blank" rel="noopener noreferrer">Open Downloader <i data-lucide="external-link"></i></a>
       </div>
 
-      <div class="glass rounded-[26px] w-full p-5">
-        <h3 class="font-hand font-bold text-3xl leading-none" style="color:#fff;">🚀 Gift #5 — Taunt Buddy</h3>
-        <p class="subtxt mt-2">Ye app ab <b>live</b> hai 🎉 Ye ek Android app hai — aur ye tera <b>Exam Buddy</b> bhi hai 🎯 Padhai ka poora saaman ek hi app me.</p>
-        <div class="mt-3 flex justify-center">
-          <span class="g5-soon g5-live"><span class="g5-dot"></span> V1.0 · Released · Download ready</span>
-        </div>
-        <div class="g5-box">
-          <div class="gb-point"><i data-lucide="graduation-cap"></i><span><b>Saare exams listed</b> — jitne bhi exams hain, sab ek jagah, saaf-saaf. Apna exam chuno aur seedha prep shuru 📚</span></div>
-          <div class="gb-point"><i data-lucide="timer"></i><span><b>Pomodoro timer</b> — 25 min padhai, 5 min break. Phone door rakho, focus full ⏳</span></div>
-          <div class="gb-point"><i data-lucide="laugh"></i><span><b>Taunt mode</b> — jab padhne ka mann na kare, ye app tujhe taunt karke utha degi 😹😤</span></div>
-          <div class="gb-point"><i data-lucide="target"></i><span><b>Countdown + progress</b> — exam kitne din door hai, kitna syllabus hua, sab track pe 🎯</span></div>
-          <div class="gb-point"><i data-lucide="wifi-off"></i><span><b>Offline chalta hai, bilkul free</b> — internet na ho tab bhi kaam karega, ads bhi nahi 🤍</span></div>
-          <div class="gb-point"><i data-lucide="smartphone"></i><span><b>Android (APK)</b> — file seedha isi page se download hogi, koi Play Store nahi chahiye 📲</span></div>
-          <div class="g5-stat">
-            <div><b>Exams</b><span>All listed</span></div>
-            <div><b>25/5</b><span>Focus timer</span></div>
-            <div><b>100%</b><span>Free</span></div>
-          </div>
-        </div>
-        <a id="gift5Btn" class="btn btn-mint btn-block mt-3 g5-dl" href="https://github.com/dastaanenajdik/Tauntbuddy/releases/download/V1.0/app-release.apk" download rel="noopener noreferrer">
-          <i data-lucide="download"></i>
-          Download Taunt Buddy (APK)
-        </a>
-        <button id="g5Copy" class="btn btn-ghost btn-block mt-2" style="min-height:44px;font-size:.78rem">
-          <i data-lucide="copy"></i>
-          Download link copy karo
-        </button>
-        <p class="g5-note"><b>Install kaise karein?</b> Download hone ke baad → notification ya <b>Downloads</b> folder me APK tap karo → "Allow from this source" on karo → Install. Bas ho gaya 🎉<br/><br/><b>Download na chale?</b> Ye Insta/WhatsApp ke andar wale browser me ho sakta hai — upar wala button dabake <b>link copy</b> karo aur <b>Chrome</b> me kholkar download karo. 💙</p>
+      <div class="gift-card glass">
+        <span class="gift-number">04</span>
+        <h3>Movies</h3>
+        <p class="subtxt">You can easily download a movie from here.</p>
+        <a id="moviesBtn" class="btn btn-secondary btn-block mt-3" href="https://new4.eonmovies.click/" target="_blank" rel="noopener noreferrer">Open Movies <i data-lucide="external-link"></i></a>
       </div>
 
-      <p class="subtxt text-center pb-2 mt-1" style="white-space:pre-line;line-height:1.7">Website yahin khatam ho rahi hai, sorry zyada bore kar diya to 😞
-lekin birthday enjoy karna abhi baaki hai. 😎🎂
-<span class="font-hand text-3xl font-bold" style="color:#00e5ff;text-shadow:0 0 14px rgba(0,229,255,.5);">Happy Birthday once again, Ritu Bhai! ❤️</span></p>
+      <div class="gift-card glass">
+        <span class="gift-number">05</span>
+        <h3>Taunt Buddy</h3>
+        <p class="subtxt">Your Exam Buddy — all your study essentials in one app.</p>
+        <a id="gift5Btn" class="btn btn-primary btn-block mt-3" href="https://github.com/dastaanenajdik/Tauntbuddy/releases/download/V1.0/app-release.apk" download rel="noopener noreferrer"><i data-lucide="download"></i> Download the Android app</a>
+      </div>
+
+      <p class="footer-note">The website is finally ending — sorry for the extra words. Keep enjoying your birthday; there is still more fun ahead. 😎🎂<br /><span>Happy Birthday once again, Bhai Ritu! 💙</span></p>
     </div>
   </section>
 </main>
 
-<button id="prevBtn" class="navbtn" aria-label="Previous slide">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-</button>
-<button id="nextBtn" class="navbtn" aria-label="Next slide">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-</button>
-<div id="dots"></div>
-<div class="wm">Made WITH 💙 BY YOUR DOST</div>
+<button id="prevBtn" class="navbtn" aria-label="Previous slide"><i data-lucide="chevron-left"></i></button>
+<button id="nextBtn" class="navbtn" aria-label="Next slide"><i data-lucide="chevron-right"></i></button>
+<div id="dots" aria-label="Slide navigation"></div>
+<div class="wm">made with care · 26.09</div>
 
 <audio id="bgm" loop preload="auto"></audio>
-
 <script src="assets/app.js"></script>
 </body>
 </html>
