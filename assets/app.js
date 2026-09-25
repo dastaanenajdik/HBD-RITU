@@ -21,13 +21,14 @@ const CONFIG = {
     sidify: 'https://sidify.vercel.app/',
     downloader: 'https://ifallertzia-downloader.vercel.app/',
     movies: 'https://new4.eonmovies.click/',
+    movies2: 'https://hdhub4ku.bi/',
     tauntBuddy: 'https://github.com/dastaanenajdik/Tauntbuddy/releases/download/V1.0/app-release.apk'
   }
 };
 
 /* ---------- Data ---------- */
 const CONF = ['#5a8dd2','#8e89d8','#e6927e','#e9b56c','#73ae98','#f3c6a9','#fffaf2'];
-const NO_LINES = ['yaha nahi uppr click kr','nautanki mt kr sala','itna bhi fast nahi','kosis achchi thi'];
+const NO_LINES = ['yaha nahi uppr click kr','nautanki mt kr','itna bhi fast nahi','kosis achchi thi'];
 
 const PRESETS = [
   'Whenever I needed you, you stayed on the call with me. Thank you.',
@@ -308,8 +309,8 @@ function unlockSite(){
 
 /* ---------- YES / NO ---------- */
 function setupQuiz(){
-  const yes = $('#yesBtn'), no = $('#noBtn');
-  if(!yes||!no) return;
+  const yes = $('#yesBtn'), no = $('#noBtn'), arena = $('#noArena');
+  if(!yes||!no||!arena) return;
   yes.addEventListener('click', ()=>{
     if(state.quizAnswered) return;
     state.quizAnswered = true;
@@ -321,24 +322,53 @@ function setupQuiz(){
     if(qn){ qn.style.display='inline-flex'; qn.style.animation='cardPop .7s var(--ease-spring) both'; refreshIcons(); }
   });
 
-  // Every tap on NO writes the next line, and nothing else.
+  // Dodge system: NO never lets itself be pressed. It runs away
+  // inside the arena and every run writes its next line on the button itself.
   let noHits = 0;
-  const msg = $('#noMsg');
-  no.addEventListener('click', e=>{
+  let lastDodge = 0;
+  const dodgeNo = (px, py)=>{
     if(state.quizAnswered) return;
-    e.preventDefault();
-    if(msg && noHits < NO_LINES.length){
-      if(noHits === 0) msg.textContent = '';
-      const row = document.createElement('span');
-      row.className = 'no-line';
-      row.textContent = NO_LINES[noHits];
-      msg.appendChild(row);
-    }
+    const now = Date.now();
+    if(now - lastDodge < 220) return;
+    lastDodge = now;
+
+    const a = arena.getBoundingClientRect();
+    no.style.transform = 'none';            // switch from centred to plain top/left coords
+    no.textContent = NO_LINES[noHits % NO_LINES.length];
     noHits++;
-    const r = no.getBoundingClientRect();
-    spawnSpark(r.left+r.width/2, r.top+r.height/2, CONF[4], 10, 34);
+
+    const pad = 4;
+    const bw = no.offsetWidth, bh = no.offsetHeight;
+    const maxX = Math.max(pad, a.width - bw - pad);
+    const maxY = Math.max(pad, a.height - bh - pad);
+    const cur = no.getBoundingClientRect();
+    const cx = cur.left - a.left, cy = cur.top - a.top;
+    let nx = pad, ny = pad, tries = 0;
+    do{
+      nx = pad + Math.random() * Math.max(1, maxX - pad);
+      ny = pad + Math.random() * Math.max(1, maxY - pad);
+      tries++;
+    }while(tries < 16 &&
+      ( Math.hypot(nx - cx, ny - cy) < 95 ||
+        (px != null && Math.abs((nx + bw/2) - (px - a.left)) < 75 && Math.abs((ny + bh/2) - (py - a.top)) < 60) ));
+    no.style.left = Math.min(Math.max(nx, pad), maxX) + 'px';
+    no.style.top  = Math.min(Math.max(ny, pad), maxY) + 'px';
+
     no.classList.remove('no-hit'); void no.offsetWidth; no.classList.add('no-hit');
+    const r = no.getBoundingClientRect();
+    spawnSpark(r.left + r.width/2, r.top + r.height/2, CONF[4], 10, 34);
+  };
+
+  // Desktop: the cursor can never even land on it.
+  no.addEventListener('pointerenter', e=>{
+    if(e.pointerType === 'mouse') dodgeNo(e.clientX, e.clientY);
   });
+  // Touch + mouse: run before any click can register.
+  no.addEventListener('pointerdown', e=>{ e.preventDefault(); dodgeNo(e.clientX, e.clientY); });
+  no.addEventListener('touchstart', e=>{ e.preventDefault(); }, { passive:false });
+  // Last-resort guards so NO can never be activated.
+  no.addEventListener('click', e=>{ e.preventDefault(); dodgeNo(e.clientX, e.clientY); });
+  no.addEventListener('focus', ()=>{ dodgeNo(); no.blur(); });
 }
 
 /* ---------- Envelope ---------- */
@@ -545,7 +575,7 @@ function buildNotes(){
     outer.style.animationDelay = (200 + i*170)+'ms';
     const signoff = SIGNOFFS[(Math.random()*SIGNOFFS.length)|0];
     const card = document.createElement('div');
-    card.className = 'flip-card no-swipe';
+    card.className = 'flip-card';
     card.setAttribute('role','button');
     card.innerHTML =
       '<div class="flip-face flip-front" style="background:'+NOTE_GRADS[i%5]+';">'+
@@ -684,6 +714,7 @@ function setupGift(){
   const sid = $('#sidifyBtn');
   const down = $('#downloaderBtn');
   const mov = $('#moviesBtn');
+  const mov2 = $('#movies2Btn');
   const app = $('#gift5Btn');
 
   if(open) open.addEventListener('click', ()=>{
@@ -702,6 +733,7 @@ function setupGift(){
   if(sid) sid.addEventListener('click', ()=>{ showToast('Opening Sidify 🎁💙','#8e89d8'); bigConfetti(); });
   if(down) down.addEventListener('click', ()=>{ showToast('Opening the downloader 🎬💙','#73ae98'); bigConfetti(); });
   if(mov) mov.addEventListener('click', ()=>{ showToast('Opening Movies 🍿💙','#e6927e'); bigConfetti(); });
+  if(mov2) mov2.addEventListener('click', ()=>{ showToast('Opening HDHub4u 🍿💙','#e6927e'); bigConfetti(); });
   if(app) app.addEventListener('click', ()=>{ showToast('Your direct APK download is starting 📥','#73ae98'); sparkleAt(app); });
 }
 
