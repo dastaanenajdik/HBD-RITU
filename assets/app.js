@@ -5,7 +5,7 @@
 
 /* ---------- Config (update these when needed) ---------- */
 const CONFIG = {
-  PHOTO_URL: 'mini.jpg',
+  PHOTO_URL: 'Ritu.jpg',
   WA_NUMBER: '918942895173',
   WISH_HEADER: 'Birthday note for Bhai Ritu 🎉💙',
   PIN: '2609',
